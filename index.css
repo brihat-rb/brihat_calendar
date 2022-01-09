@@ -1,0 +1,263 @@
+* {
+  user-select: none;
+  -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+  color-adjust: exact !important;  /* Firefox */
+}
+
+body {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card-header {
+  background: url('logo.svg') 5% center, url('logo.svg') 95% center;
+  background-repeat: no-repeat;
+  background-size: auto 80%;
+}
+
+.pakshya-details-nep {
+  font-size: 11px !important;
+  margin-top: 7px !important;
+  margin-bottom: 7px !important;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 1px;
+  empty-cells: hide;
+}
+
+table td:hover {
+  /* background-color: rgba(0,0,0,.075); */
+  background-color: lightgray;
+  background-size:  100% 100%;
+  transform: scale(1.4545,1.34);
+  transform-origin: center;
+  border-color: #000;
+  cursor: pointer;
+}
+
+.table td {
+  padding: 7px;
+  transition: 0.2s;
+  background: url('watermark.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+}
+
+h6 {
+  font-size: 15px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.cell-today {
+  border: teal solid 3px !important;
+}
+
+.bs_date {
+  color: green;
+  float: left;
+}
+
+.ad_date {
+  color: chocolate;
+  float: right;
+}
+
+.for_lunar {
+  color: teal;
+  font-size: 12px;
+}
+
+.saturday {
+  color: red;
+}
+
+#lunar_details, #footer {
+  color: teal;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+#lunar_details {
+  margin-bottom: 4px;
+}
+
+#footer {
+  color: darkblue;
+  font-size: 12px;
+}
+
+#footer:hover {
+  font-weight: bold;
+  /* letter-spacing: 1.1px; */
+}
+
+.pstart, .pmid2 {
+  color: #7d6608;
+}
+
+.pmid1, .pend {
+  color: #1b2631;
+}
+
+.form-inline {
+  width: 100%;
+}
+
+#previous, #next {
+  flex: 1;
+}
+
+#default {
+  flex: 2;
+}
+
+#solarnsconverter {
+  width: 100%;
+  height: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  color: darkcyan;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+#solarnsconverter:hover {
+  color: teal;
+  font-weight: bold;
+}
+
+select {
+  text-align: center;
+  text-align-last: center;
+}
+
+#g_info, #user_info {
+  display: flex;
+  justify-content: space-between;
+  font-family: monospace;
+  color: maroon;
+  font-size: 13px;
+  /* display: none; */
+}
+
+#g_info div, #user_info div{
+  /* display: none; */
+  opacity: 0.5;
+  margin: 0px 2px 0px 2px;
+}
+
+#g_info div:hover, #user_info div:hover {
+  opacity: 0.75;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    width: 100%;
+  }
+
+  .card-header {
+    background: url("logo.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 80%;
+  }
+
+  #calendar {
+    background: url("watermark.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 50%;
+  }
+
+  .table td {
+    background: none !important;
+  }
+
+  .table td:hover {
+    background: url("watermark.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: auto 80% !important;
+    background-color: lightgray !important;
+  }
+
+  .cell-today {
+    border: teal solid 2px !important;
+  }
+
+  .form-inline {
+    align: center;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 555px) {
+  .table th {
+    margin: 2px;
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .for_lunar {
+    font-size: 11px;
+  }
+
+  #user_isp {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .table th {
+    padding: 10px;
+  }
+
+  td span h4 {
+    font-size: 17px;
+    margin: 0;
+  }
+
+  td span .for_lunar {
+    font-size: 9px;
+  }
+
+  .cell-today {
+    border: teal solid 1px !important;
+  }
+
+  .bs_date, .ad_date {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  body {
+    width: 100%;
+  }
+
+  .table th {
+    padding: 10px;
+    font-size: 9px;
+  }
+
+  .table td {
+    padding: 5px;
+  }
+
+  td span h4 {
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .bs_date, .ad_date {
+    font-size: 10px;
+  }
+}

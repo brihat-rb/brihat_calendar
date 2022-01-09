@@ -1,0 +1,15 @@
+.national_holiday {
+  color: red;
+}
+
+.specific_holiday {
+  color: darkturquoise;
+}
+
+#public_holiday_title {
+  font-size: 14px;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-decoration: underline;
+  letter-spacing: 1.5px;
+}

@@ -1,0 +1,258 @@
+.close {
+  position: absolute;
+  right: 1rem;
+}
+
+#modal_author {
+  color: gray;
+  font-size: 11px;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+#modal_body {
+  background: url('watermark.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 80%;
+}
+
+.ns_left, .ad_left, .bs_left {
+  color: green;
+}
+
+.ns_right, .ad_choco, .bs_right {
+  color: chocolate;
+}
+
+.event_type {
+  font-size: 14px;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-decoration: underline;
+  letter-spacing: 1.5px;
+  color: red;
+}
+
+.national_event {
+  color: darkgreen;
+}
+
+.international_event {
+  color: darkblue;
+}
+
+.solar_ns_event {
+  color: darkorange;
+}
+
+.other_calendar_event {
+  color: maroon;
+}
+
+#international_event_eng {
+  color: darkblue;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#other_calendar_event_eng {
+  color: maroon;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#suggestion {
+  color: teal;
+  text-decoration: underline;
+  font-size: 10px;
+}
+
+#suggestion:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#javascript_form {
+  display: flex;
+  margin: 10px;
+  flex-direction: column;
+}
+
+#credit, #credit a {
+  font-size: 8px;
+  color: gray;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+input[type="text"], textarea {
+  text-align: center;
+  border-top-style: hidden;
+  border-left-style: hidden;
+  border-right-style: hidden;
+  border-bottom-style: groove;
+}
+
+input[type="text"]:hover, textarea:hover {
+  border-color: red;
+}
+
+textarea {
+  height: 60px; /* Note this is the same height as the placeholders line-height */
+}
+
+textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+  line-height: 60px;
+}
+textarea::-webkit-input-placeholder { /* Webkit */
+  line-height: 60px;
+}
+textarea:-ms-input-placeholder { /* IE */
+  line-height: 60px;
+}
+
+input[type="submit"] {
+  background-color: white;
+  color: green;
+  border-radius: 2px;
+  border: 1px solid green;
+  transition-duration: 0.2s;
+  width: 200px;
+  height: 25px;
+  margin-top: 10px;
+  align-self: center;
+}
+
+input[type="submit"]:hover {
+  background-color: green;
+  color: white;
+}
+
+input[type="submit"][disabled] {
+  border: 1px solid darkgray;
+  background-color: white;
+  color: darkgray;
+}
+
+input[type="submit"][disabled]:hover {
+  background-color: darkgray;
+  color: white;
+}
+
+.print {
+  vertical-align: middle !important;
+}
+
+.print span{
+  display: none;
+  font-size: 13px;
+}
+
+.qr {
+  background: url('brihat_calendar_url_qr.svg') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: auto 100% !important;
+}
+
+.qr_fallback {
+  background: url('watermark.svg') 20% center, url('brihat_calendar_url_qr.svg') 80% center !important;
+  background-repeat: no-repeat !important;
+  background-size: auto 100% !important;
+}
+
+@media only screen and (max-width: 555px) {
+  #modal_title {
+    font-size: 20px;
+  }
+
+  #modal_body, input, textarea {
+    font-size: 14px;
+  }
+
+  input[type="submit"] {
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  #modal_title {
+    font-size: 18px;
+  }
+
+  #modal_body {
+    font-size: 13px;
+  }
+
+  input, textarea {
+    font-size: 12px;
+  }
+
+  input[type="submit"] {
+    width: 125px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #modal_title {
+    font-size: 16px;
+  }
+
+  #modal_body {
+    font-size: 12px;
+  }
+}
+
+@media print {
+  @page {
+    size: 297mm 210mm;
+    margin: 5mm;
+  }
+
+  .print span {
+    display: block;
+  }
+
+  * {
+    font-weight: bold;
+  }
+
+  .card-header {
+    background: url('static_logo.svg') 5% center, url('brihat_calendar_url_qr.svg') 95% center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 90% !important;
+  }
+
+  #prev_today_next, #date_converter_div, #print, #brihat_calendar_date_jumper, #user_info, #g_info, #app_open_link {
+    display: none;
+  }
+
+  .national_holiday span h4 b {
+    background: red;
+     border-radius: 0.9em;
+    -moz-border-radius: 0.9em;
+    -webkit-border-radius: 0.9em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.8em;
+    text-align: center;
+    width: 1.8em;
+    /* padding-bottom: 0.2em; */
+  }
+
+  .specific_holiday span h4 b {
+    background: darkturquoise;
+    border-radius: 0.9em;
+    -moz-border-radius: 0.9em;
+    -webkit-border-radius: 0.9em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.8em;
+    text-align: center;
+    width: 1.8em;
+    /* padding-bottom: 0.2em; */
+  }
+}
