@@ -1,14 +1,9 @@
 var info_div = document.getElementById("g_info");
-var g_info = new XMLHttpRequest();
-var ipinfo_url = 'https://ipinfo.io/json';
-g_info.open('GET', ipinfo_url, true);
-g_info.onload = function() {
-  response = JSON.parse(this.response);
-  info_div.innerHTML = "<div id='user_ip'>" + response.ip + " (" + response.country + ")"+ "</div>";
+function recordData (response) {
+	info_div.innerHTML = "<div id='user_ip'>" + response.ip + " (" + response.country + ")"+ "</div>";
   info_div.innerHTML += "<div id='user_isp'><b>" + response.org + "</b></div>";
   info_div.innerHTML += "<div id='user_location'>" + response.loc + "</div>";
 }
-g_info.send();
 
 // https://stackoverflow.com/questions/2400935/browser-detection-in-javascript
 navigator.get_browser_info = (function(){
