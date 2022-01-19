@@ -116,7 +116,7 @@ function showADCalendar(month, year) {
     monthAndYear.innerHTML += "<b>" + AD_MONTHS[month - 1] + " " + year + "</b>";
     monthAndYear.innerHTML += "<h6><span style='color: green' onclick='showCalendar(ns_today_month, ns_today_year)'>" + ns_month_year + "</span>&emsp;|&emsp;<span style='color: chocolate' onclick='showBSCalendar(bs_today_month, bs_today_year)'>" + bs_month_year + "</span></h6>";
     monthAndYear.innerHTML += "<div id='lunar_details'></div>";
-    monthAndYear.innerHTML += "<div id='footer'>brihat (brihatbajracharya@gmail.com)</div>";
+    monthAndYear.innerHTML += "<div id='footer'>brihat (reachme@brihatrb.com.np)</div>";
     // update Go To section as well
     select_year.value = ns_year_start;
     select_month.value = ns_month_start;
@@ -269,7 +269,7 @@ function showBSCalendar(month, year) {
     monthAndYear.innerHTML += "<b>" + BS_MONTHS_NEP[month - 1] + " " + arabic_number_to_nepali(year) + "</b>";
     monthAndYear.innerHTML += "<h6><span style='color: green' onclick='showADCalendar(AD_TODAY_MONTH + 1, AD_TODAY_YEAR)'>" + ad_month_year + "</span>&emsp;|&emsp;<span style='color: chocolate' onclick='showCalendar(ns_today_month, ns_today_year)'>" + ns_month_year + "</span></h6>";
     monthAndYear.innerHTML += "<div id='lunar_details'></div>";
-    monthAndYear.innerHTML += "<div id='footer'>brihat (brihatbajracharya@gmail.com)</div>";
+    monthAndYear.innerHTML += "<div id='footer'>brihat (reachme@brihatrb.com.np)</div>";
     // update Go To section as well
     select_year.value = ns_year_start;
     select_month.value = ns_month_start;
