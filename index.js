@@ -392,7 +392,7 @@ function showCalendar(month, year) {
     monthAndYear.innerHTML += "<b>" + NS_NEP[month - 1] + " " + arabic_number_to_nepali(year) + "</b>";
     monthAndYear.innerHTML += "<h6><span style='color: green' onclick='showBSCalendar(bs_today_month, bs_today_year)'>" + bs_month_year + "</span>&emsp;|&emsp;<span style='color: chocolate' onclick='showADCalendar(AD_TODAY_MONTH + 1, AD_TODAY_YEAR)'>" + ad_month_year + "</span></h6>";
     monthAndYear.innerHTML += "<div id='lunar_details'></div>"
-    monthAndYear.innerHTML += "<div id='footer'>brihat (brihatbajracharya@gmail.com)</div>"
+    monthAndYear.innerHTML += "<div id='footer'>brihat (reachme@brihatrb.com.np)</div>"
     // update Go To section as well
     select_year.value = year;
     select_month.value = month;
