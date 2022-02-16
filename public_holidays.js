@@ -1,5 +1,5 @@
 // GET PUBLIC HOLIDAYS
-var public_holiday_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/brihat_calendar/data/public_holidays_in_nepal.json';
+var public_holiday_url = 'https://raw.githubusercontent.com/brihat-rb/brihat_calendar/main/data/public_holidays_in_nepal.json';
 var public_holiday_req = new XMLHttpRequest();
 var public_holidays = JSON.parse("{}");
 var public_holidays_start_year = 2078;
