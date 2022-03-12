@@ -135,7 +135,7 @@ function tdclick(id) {
     title.classList.remove('saturday');
   }
 
-  if (bs_year < 2070 || bs_year > 2078) {
+  if (bs_year < 2070 || bs_year > 2079) {
     let default_content = "";
     if (CALENDAR_MODE == 2) {
       default_content += "<brihat class='ad_left'>" + ad_date_list[2] + ad_date_sub + " " + AD_MONTHS[ad_date_list[1] - 1] + " " + ad_date_list[0] + " AD</brihat>";
@@ -172,7 +172,7 @@ function tdclick(id) {
       default_events = true;
     }
 
-    // IF REQUIRED TO SHOW SOLAR NS EVENTS AND OTHER EVENTS AS WLL
+    // IF REQUIRED TO SHOW SOLAR NS EVENTS AND OTHER EVENTS AS WELL
     // if(snsevents.data[solar_ns_events_key]) {
     //   default_content += "<br />";
     //   if(!default_events) {
@@ -203,7 +203,7 @@ function tdclick(id) {
 
   var nepal_event_req = new XMLHttpRequest();
   // json_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/' + bs_year + '.json';
-  if (bs_year >= 2076 && bs_year <= 2078) {
+  if (bs_year >= 2076 && bs_year <= 2079) {
     json_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/' + bs_year + '_detailed.json';
   }
   else {
