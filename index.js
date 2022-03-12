@@ -109,7 +109,7 @@ function fill_lunar_data(year1, year2) {
     var LUNAR_EVENTS_ONE = LUNAR_EVENTS;
     var LUNAR_EVENTS_TWO = LUNAR_EVENTS;
 
-    if (year1 >= 2070 && year1 <= 2078) {
+    if (year1 >= 2070 && year1 <= 2079) {
       var lunar_data_req1 = new XMLHttpRequest();
       lunar_data_req1.open('GET', lunar_data_url1, false);
       lunar_data_req1.onload = function() {
