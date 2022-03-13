@@ -8,6 +8,7 @@ var ievents = "";
 int_event_req.open('GET', int_event_url, false);
 int_event_req.onload = function() {
   ievents = JSON.parse(this.response);
+  console.info("International Events Loaded!");
 }
 int_event_req.send();
 
@@ -18,6 +19,7 @@ var nevents = "";
 nat_event_req.open('GET', nat_event_url, false);
 nat_event_req.onload = function() {
   nevents = JSON.parse(this.response);
+  console.info("National Events Loaded!");
 }
 nat_event_req.send();
 
@@ -28,6 +30,7 @@ var snsevents = "";
 solar_ns_event_req.open('GET', solar_ns_event_url, false);
 solar_ns_event_req.onload = function() {
   snsevents = JSON.parse(this.response);
+  console.info("Solar Nepal Sambat Events Loaded!");
 }
 solar_ns_event_req.send();
 
@@ -38,6 +41,7 @@ var other_events = "";
 other_calendar_event_req.open('GET', other_calendar_event_url, false);
 other_calendar_event_req.onload = function() {
   other_events = JSON.parse(this.response);
+  console.info("Miscellaneous Events Loaded!");
 }
 other_calendar_event_req.send();
 
@@ -51,6 +55,7 @@ function convert_to_nepali(date_string) {
 }
 
 function tdclick(id) {
+  console.info("Populating informations for date: ", id, "...");
   // console.log(id);
   var td_element = document.getElementById(id).parentNode.parentNode;
   var title = document.getElementById('modal_title');
@@ -136,6 +141,7 @@ function tdclick(id) {
   }
 
   if (bs_year < 2070 || bs_year > 2079) {
+    console.info("Generating Default Content...");
     let default_content = "";
     if (CALENDAR_MODE == 2) {
       default_content += "<brihat class='ad_left'>" + ad_date_list[2] + ad_date_sub + " " + AD_MONTHS[ad_date_list[1] - 1] + " " + ad_date_list[0] + " AD</brihat>";
@@ -153,6 +159,7 @@ function tdclick(id) {
     // show national and international events as default
     let default_events = false;
     if(nevents.data[nat_events_key]) {
+      console.info("International Event Found!");
       default_content += "<br />";
       if(!default_events) {
         default_content += "<br />";
@@ -160,8 +167,10 @@ function tdclick(id) {
       default_content +="<div class='national_event event_type'>national event</div>";
       default_content +="<div class='national_event'>" + nevents.data[nat_events_key][1] + "</div>";
       default_events = true;
+      console.info("National Event Displayed!");
     }
     if(ievents.data[int_events_key]) {
+      console.info("International Event Found!");
       default_content += "<br />";
       if(!default_events) {
         default_content += "<br />";
@@ -170,10 +179,12 @@ function tdclick(id) {
       default_content +="<div class='international_event'>" + ievents.data[int_events_key][1] + "</div>";
       default_content +="<div id='international_event_eng'>( " + ievents.data[int_events_key][0] + " )</div>";
       default_events = true;
+      console.info("International Event Displayed!");
     }
 
     // IF REQUIRED TO SHOW SOLAR NS EVENTS AND OTHER EVENTS AS WELL
     // if(snsevents.data[solar_ns_events_key]) {
+    //   console.info("Solar Nepal Sambat Event Found!");
     //   default_content += "<br />";
     //   if(!default_events) {
     //     default_content += "<br />";
@@ -182,8 +193,10 @@ function tdclick(id) {
     //   default_content +="<div class='solar_ns_event'>" + snsevents.data[solar_ns_events_key][1] + "</div>";
     //   default_content +="<div id='solar_ns_event_eng'>( " + snsevents.data[solar_ns_events_key][0] + " )</div>";
     //   default_events = true;
+    //   console.info("Solar Nepal Sambat Event Displayed!");
     // }
     // if(other_events.data[ad_date_list[0].toString()][other_events_key]) {
+    //   console.info("Misc Event Found!");
     //   default_content += "<br />";
     //   if(!default_events) {
     //     default_content += "<br />";
@@ -192,12 +205,15 @@ function tdclick(id) {
     //   default_content +="<div class='other_calendar_event'>" + other_events.data[ad_date_list[0].toString()][other_events_key][1] + "</div>";
     //   default_content +="<div id='other_calendar_event_eng'>( " + other_events.data[ad_date_list[0].toString()][other_events_key][0] + " )</div>";
     //   default_events = true;
+    //   console.info("Misc Event Displayed!");
     // }
     if (!default_events) {
+      console.info("No Default Event to show!");
       default_content += '<br /><br /><div id="no_info"><b>This date has no events</b></div>';
     }
     content.innerHTML = default_content + "<br />";
     content.innerHTML += "<b>Lunar details not available for वि. सं. '<u>" + arabic_number_to_nepali(bs_year) + "</u>'</b>";
+    console.info("Generating Default Content... DONE!");
     return;
   }
 
@@ -213,6 +229,8 @@ function tdclick(id) {
   nepal_event_req.open('GET', json_url, true);
   nepal_event_req.onload = function() {
     let events = JSON.parse(this.response);
+    
+    console.info("Populating Lunar Details...");
 
     let info_content = '<div id="tithi" class="' + lunar_class + '">';
     if (events.data[bs_month - 1][bs_date - 1].hasOwnProperty("ns_year")) {
@@ -233,6 +251,10 @@ function tdclick(id) {
     //   info_content += "<br />";
     // }
     info_content += "<br />";
+    
+    console.info("Populating Lunar Details... DONE!");
+    
+    console.info("Displaying Other Calendar Date...");
 
     if (CALENDAR_MODE == 2) {
       info_content += "<span class='ad_left'>" + ad_date_list[2] + ad_date_sub + " " + AD_MONTHS[ad_date_list[1] - 1] + " " + ad_date_list[0] + " AD</span>";
@@ -246,32 +268,40 @@ function tdclick(id) {
       info_content += "<span class='bs_left'>" + "वि. सं. " + nepali_date + "</span><br />";
       info_content += "<span class='ad_choco'>" + ad_date_list[2] + ad_date_sub + " " + AD_MONTHS[ad_date_list[1] - 1] + " " + ad_date_list[0] + " AD</span>";
     }
+    
+    console.info("Displaying Other Calendar Date... DONE");
 
     let has_events = false;
 
     if(events.data[bs_month - 1][bs_date - 1].lunar_event_one || events.data[bs_month - 1][bs_date - 1].lunar_event_two || events.data[bs_month - 1][bs_date - 1].lunar_event_three) {
+      console.info("This date has events...");
       info_content += "<br /><br />";
     }
     if (events.data[bs_month - 1][bs_date - 1].lunar_event_one) {
       info_content += '<div id="info1">' + events.data[bs_month - 1][bs_date - 1].lunar_event_one + '</div>';
       has_events = true;
+      console.info("Event One Displayed!");
     }
     if (events.data[bs_month - 1][bs_date - 1].lunar_event_two) {
       info_content += '<div id="info2">' + events.data[bs_month - 1][bs_date - 1].lunar_event_two + '</div>';
       has_events = true;
+      console.info("Event Two Displayed!");
     }
     if (events.data[bs_month - 1][bs_date - 1].lunar_event_three) {
       info_content += '<div id="info3">' + events.data[bs_month - 1][bs_date - 1].lunar_event_three + '</div>';
       has_events = true;
+      console.info("Event Three Displayed!");
     }
 
     var public_holidays_information = add_public_holiday_info(id, has_events);
     if (public_holidays_information) {
       info_content += public_holidays_information
       has_events = true;
+      console.info("Public Holiday!!");
     }
 
     if(nevents.data[nat_events_key]) {
+      console.info("National Event Found!");
       info_content += "<br />";
       if(!has_events) {
         info_content += "<br />";
@@ -279,8 +309,10 @@ function tdclick(id) {
       info_content +="<div class='national_event event_type'>national event</div>";
       info_content +="<div class='national_event'>" + nevents.data[nat_events_key][1] + "</div>";
       has_events = true;
+      console.info("National Event Displayed!");
     }
     if(ievents.data[int_events_key]) {
+      console.info("International Event Found!");
       info_content += "<br />";
       if(!has_events) {
         info_content += "<br />";
@@ -289,8 +321,10 @@ function tdclick(id) {
       info_content +="<div class='international_event'>" + ievents.data[int_events_key][1] + "</div>";
       info_content +="<div id='international_event_eng'>( " + ievents.data[int_events_key][0] + " )</div>";
       has_events = true;
+      console.info("International Event Displayed!");
     }
     if(snsevents.data[solar_ns_events_key]) {
+      console.info("Solar Nepal Sambat Event Found!");
       info_content += "<br />";
       if(!has_events) {
         info_content += "<br />";
@@ -298,8 +332,10 @@ function tdclick(id) {
       info_content +="<div class='solar_ns_event event_type'>solar nepal sambat event</div>";
       info_content +="<div class='solar_ns_event'>" + snsevents.data[solar_ns_events_key][1] + "</div>";
       has_events = true;
+      console.info("Solar Nepal Sambat Event Displayed!");
     }
     if(other_events.data[ad_date_list[0].toString()][other_events_key]) {
+      console.info("Misc Event Found!");
       info_content += "<br />";
       if(!has_events) {
         info_content += "<br />";
@@ -308,11 +344,14 @@ function tdclick(id) {
       info_content +="<div class='other_calendar_event'>" + other_events.data[ad_date_list[0].toString()][other_events_key][1] + "</div>";
       info_content +="<div id='other_calendar_event_eng'>( " + other_events.data[ad_date_list[0].toString()][other_events_key][0] + " )</div>";
       has_events = true;
+      console.info("Misc Event Displayed!");
     }
     if (!has_events) {
+      console.info("No events found!");
       info_content += '<br /><br /><div id="no_info"><b>This date has no events</b></div>';
     }
     content.innerHTML = info_content;
+    console.info("Populating informations for date: ", id, "... DONE!");
   }
   nepal_event_req.onerror = function() {
     content.innerHTML = "Error Occured";
