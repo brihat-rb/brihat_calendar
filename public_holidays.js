@@ -14,6 +14,7 @@ public_holiday_req.onload = function() {
 public_holiday_req.send();
 
 function show_public_holidays(bs_year_start, bs_year_end, bs_month_start, bs_month_end) {
+  console.info("Checking for Public Holidays...");
   if(bs_year_end < public_holidays_start_year || bs_year_start > public_holidays_end_year) {
     return;
   }
@@ -39,6 +40,7 @@ function show_public_holidays(bs_year_start, bs_year_end, bs_month_start, bs_mon
 
       if(public_holidays[ph_year]) {
         if(public_holidays[ph_year][public_holidays_key]) {
+          console.info("Public Holiday found for: ", complete_date);
           var holiday_cause = public_holidays[ph_year][public_holidays_key][0];
           var holiday_type = public_holidays[ph_year][public_holidays_key][1];
           var holiday_description = public_holidays[ph_year][public_holidays_key][1];
@@ -72,6 +74,7 @@ function show_public_holidays(bs_year_start, bs_year_end, bs_month_start, bs_mon
     }
     index = ph_year.toString() + "-" + ph_month.toString().padStart(2, '0');
   }
+  console.info("Checking for Public Holidays... DONE!");
 }
 
 function add_public_holiday_info(complete_date, has_events) {
@@ -87,6 +90,7 @@ function add_public_holiday_info(complete_date, has_events) {
   }
 
   if (public_holidays[public_holidays_year][public_holidays_key]) {
+    console.info("Public Holiday Found!");
     public_holidays_array = public_holidays[public_holidays_year][public_holidays_key];
     public_holidays_info = "<br />";
     if(!has_events) {
@@ -106,6 +110,7 @@ function add_public_holiday_info(complete_date, has_events) {
       date_detail_popup_title.classList.remove('saturday');
       date_detail_popup_title.classList.add('saturday');
     }
+    console.info("Public Holiday Displayed!");
   }
 
   return public_holidays_info;
