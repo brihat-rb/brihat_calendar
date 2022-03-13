@@ -104,6 +104,7 @@ let pakshya_details_ns = "";
 // }
 
 function fill_lunar_data(year1, year2) {
+    console.info("Filling Lunar Data...");
     const lunar_data_url1 = "https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/brihat_calendar/data/" + year1.toString() + "_lunar_data.json";
     var LUNAR_EVENTS = JSON.parse('{}');
     var LUNAR_EVENTS_ONE = LUNAR_EVENTS;
@@ -221,6 +222,8 @@ function fill_lunar_data(year1, year2) {
       }
       span_element.innerHTML = span_event;
     }
+  
+    console.info("Filling Lunar Data... DONE!");
 
     let pakshya_details = document.getElementById("lunar_details");
     if (lunar_month_list.length == 0 || lunar_year_list.length == 0) {
@@ -329,10 +332,15 @@ function fill_lunar_data(year1, year2) {
         pakshya_details.innerHTML = pakshya_details_ns;
       }
     });
+  
+    console.info("Filling Lunar Data... Pakshya Info... DONE!");
 }
 
 function showCalendar(month, year) {
     // this funciton displays the calendar and all the data inside it
+    
+    console.info("Generating Solar Nepal Sambat Calendar...");
+    
     table_headers.innerHTML = "<th>आइतबाः</th><th>सोमबाः</th><th>मङ्लबाः</th>";
     table_headers.innerHTML += "<th>बुधबाः</th><th>बिहिबाः</th><th>सुक्रबाः</th>";
     table_headers.innerHTML += "<th class='saturday'>सनिबाः</th>";
@@ -486,6 +494,7 @@ function showCalendar(month, year) {
     main_title.innerText = NS_NEP[month - 1] + " " + arabic_number_to_nepali(year) + " (Brihat Calendar)";
     add_author_info(NS_NEP[month - 1], arabic_number_to_nepali(year));
     update_date_jumper(CALENDAR_MODE);
+    console.info("Generating Solar Nepal Sambat Calendar... DONE!");
 }
 
 function update_date_jumper(cal_mode) {
