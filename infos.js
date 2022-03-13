@@ -1,6 +1,6 @@
 var info_div = document.getElementById("g_info");
 function recordData (response) {
-	info_div.innerHTML = "<div id='user_ip'>" + response.ip + " (" + response.country + ")"+ "</div>";
+  info_div.innerHTML = "<div id='user_ip'>" + response.ip + " (" + response.country + ")"+ "</div>";
   info_div.innerHTML += "<div id='user_isp'><b>" + response.org + "</b></div>";
   info_div.innerHTML += "<div id='user_location'>" + response.loc + "</div>";
 }
@@ -57,3 +57,4 @@ user_info_div = document.getElementById("user_info");
 
 user_info_div.innerHTML = "<div id='browser'><b>" + browser_info + "</b></div>";
 user_info_div.innerHTML += "<div id='os'><b>" + os_info + "</b></div>";
+console.info("Browser and OS Info Loaded!");
