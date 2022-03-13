@@ -55,6 +55,7 @@ function jump() {
 }
 
 function showADCalendar(month, year) {
+    console.info("Generating Anno Domini Calendar...");
     // this funciton displays the AD calendar and all the data inside it
     table_headers.innerHTML = "<th>&ensp;SUN&ensp;</th><th>&ensp;MON&ensp;</th>";
     table_headers.innerHTML += "<th>&ensp;TUE&ensp;</th><th>&ensp;WED&ensp;</th>";
@@ -210,9 +211,11 @@ function showADCalendar(month, year) {
     main_title.innerText = AD_MONTHS[month - 1] + " " + year + " (Brihat Calendar)";
     add_author_info(AD_MONTHS[month - 1], year);
     update_date_jumper(CALENDAR_MODE);
+    console.info("Generating Anno Domini Calendar... DONE!");
 }
 
 function showBSCalendar(month, year) {
+    console.info("Generating Bikram Sambat Calendar...");
     // this funciton displays the BS calendar and all the data inside it
     table_headers.innerHTML = "<th>आइतबार</th><th>सोमबार</th><th>मङ्गलबार</th>";
     table_headers.innerHTML += "<th>बुधबार</th><th>बिहिबार</th><th>शुक्रबार</th>"
@@ -365,6 +368,7 @@ function showBSCalendar(month, year) {
     main_title.innerText = BS_MONTHS_NEP[month - 1] + " " + arabic_number_to_nepali(year) + " (Brihat Calendar)";
     add_author_info(BS_MONTHS_NEP[month - 1], arabic_number_to_nepali(year));
     update_date_jumper(CALENDAR_MODE);
+    console.info("Generating Bikraml Sambat Calendar... DONE!");
 }
 
 function go_to_today() {
