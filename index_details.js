@@ -334,17 +334,22 @@ function tdclick(id) {
       has_events = true;
       console.info("Solar Nepal Sambat Event Displayed!");
     }
-    if(other_events.data[ad_date_list[0].toString()][other_events_key]) {
-      console.info("Misc Event Found!");
-      info_content += "<br />";
-      if(!has_events) {
+    if(ad_date_list[0] >= other_events.other_start && ad_date_list[0] <= other_events.other_end) {
+      if(other_events.data[ad_date_list[0].toString()][other_events_key]) {
+        console.info("Misc Event Found!");
         info_content += "<br />";
+        if(!has_events) {
+          info_content += "<br />";
+        }
+        info_content +="<div class='other_calendar_event event_type'>other event</div>";
+        info_content +="<div class='other_calendar_event'>" + other_events.data[ad_date_list[0].toString()][other_events_key][1] + "</div>";
+        info_content +="<div id='other_calendar_event_eng'>( " + other_events.data[ad_date_list[0].toString()][other_events_key][0] + " )</div>";
+        has_events = true;
+        console.info("Misc Event Displayed!");
       }
-      info_content +="<div class='other_calendar_event event_type'>other event</div>";
-      info_content +="<div class='other_calendar_event'>" + other_events.data[ad_date_list[0].toString()][other_events_key][1] + "</div>";
-      info_content +="<div id='other_calendar_event_eng'>( " + other_events.data[ad_date_list[0].toString()][other_events_key][0] + " )</div>";
-      has_events = true;
-      console.info("Misc Event Displayed!");
+    }
+    else {
+      console.info("No Misc Event Data beyond [", other_events.other_start, "-", other_events.other_end, "] AD");
     }
     if (!has_events) {
       console.info("No events found!");
