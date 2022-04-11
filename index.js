@@ -124,7 +124,7 @@ function fill_lunar_data(year1, year2) {
     }
 
     if (year1 != year2) {
-      if (year2 >= 2070 && year2 <= 2078) {
+      if (year2 >= 2070 && year2 <= 2079) {
         const lunar_data_url2 = "https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/brihat_calendar/data/" + year2.toString() + "_lunar_data.json";
 
         var lunar_data_req2 = new XMLHttpRequest();
