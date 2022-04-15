@@ -215,7 +215,9 @@ input[type="submit"][disabled]:hover {
   }
 
   * {
-    font-weight: bold;
+    /* font-family: 'Yatra One', cursive; */
+    font-family: 'Gotu', sans-serif;
+    font-weight: bolder;
   }
 
   .card-header {
