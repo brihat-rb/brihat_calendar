@@ -57,11 +57,6 @@ function jump() {
 function showADCalendar(month, year) {
     console.info("Generating Anno Domini Calendar...");
     // this funciton displays the AD calendar and all the data inside it
-    table_headers.innerHTML = "<th>&ensp;SUN&ensp;</th><th>&ensp;MON&ensp;</th>";
-    table_headers.innerHTML += "<th>&ensp;TUE&ensp;</th><th>&ensp;WED&ensp;</th>";
-    table_headers.innerHTML += "<th>&ensp;THU&ensp;</th><th>&ensp;FRI&ensp;</th>";
-    table_headers.innerHTML += "<th class='saturday'>&ensp;SAT&ensp;</th>";
-
     let first_day = (new Date(year.toString() + "-" + month.toString() + "-1")).getDay();
     let last_date = 29;
     if (is_leap_year(year)) {
@@ -103,6 +98,18 @@ function showADCalendar(month, year) {
     let bs_end_date_list_from_ns = convert_ns_to_bs(ns_year_end, ns_month_end, ns_date_end).split(" ");
     let bs_year_end = bs_end_date_list_from_ns[0];
     let bs_month_end = BS_MONTHS_NEP[bs_end_date_list_from_ns[1] - 1];
+
+    if ((bs_start_date_list_from_ns[0] == 2079 && bs_start_date_list_from_ns[1] >= 2) || bs_start_date_list_from_ns[0] > 2079) {
+      table_headers.innerHTML = "<th class='sundaytrial'>&ensp;SUN&ensp;</th>";
+    }
+    else {
+      table_headers.innerHTML = "<th>&ensp;SUN&ensp;</th>";
+    }
+    table_headers.innerHTML += "<th>&ensp;MON&ensp;</th>";
+    table_headers.innerHTML += "<th>&ensp;TUE&ensp;</th><th>&ensp;WED&ensp;</th>";
+    table_headers.innerHTML += "<th>&ensp;THU&ensp;</th><th>&ensp;FRI&ensp;</th>";
+    table_headers.innerHTML += "<th class='saturday'>&ensp;SAT&ensp;</th>";
+
 
     let bs_month_year = "";
     if (bs_year_start == bs_year_end) {
@@ -170,6 +177,11 @@ function showADCalendar(month, year) {
                 let bs_month = bs_list[1];
                 let bs_date = bs_list[2];
 
+                if ((bs_year == 2079 && bs_month >= 2) || bs_year > 2079) {
+                  if (j == 0) {
+                    cell.classList.add("sundaytrial");
+                  }
+                }
 
                 let result = "<h4 align='center'><b>" + date + "</b></h4>";
                 let bs_date_for_lunar_data = bs_year.toString() + "-" + bs_month.toString().padStart(2, "0") + "-" + bs_date.toString().padStart(2, "0");
@@ -217,7 +229,13 @@ function showADCalendar(month, year) {
 function showBSCalendar(month, year) {
     console.info("Generating Bikram Sambat Calendar...");
     // this funciton displays the BS calendar and all the data inside it
-    table_headers.innerHTML = "<th>आइतबार</th><th>सोमबार</th><th>मङ्गलबार</th>";
+    if ((year == 2079 && month >= 2) || year > 2079) {
+      table_headers.innerHTML = "<th class='sundaytrial'>आइतबार</th>";
+    }
+    else {
+      table_headers.innerHTML = "<th>आइतबार</th>";
+    }
+    table_headers.innerHTML += "<th>सोमबार</th><th>मङ्गलबार</th>";
     table_headers.innerHTML += "<th>बुधबार</th><th>बिहिबार</th><th>शुक्रबार</th>"
     table_headers.innerHTML += "<th class='saturday'>शनिबार</th>";
 
@@ -314,6 +332,12 @@ function showBSCalendar(month, year) {
                 cell.setAttribute('data-target', '#myModal');
                 if (j == 6) {
                   cell.classList.add("saturday");
+                }
+
+                if ((year == 2079 && month >= 2) || year > 2079) {
+                  if (j == 0) {
+                    cell.classList.add("sundaytrial");
+                  }
                 }
                 let ns = convert_bs_to_ns(year, month, date);
                 let ns_list = ns.split(" ");

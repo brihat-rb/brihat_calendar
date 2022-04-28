@@ -222,7 +222,7 @@ function fill_lunar_data(year1, year2) {
       }
       span_element.innerHTML = span_event;
     }
-  
+
     console.info("Filling Lunar Data... DONE!");
 
     let pakshya_details = document.getElementById("lunar_details");
@@ -332,24 +332,30 @@ function fill_lunar_data(year1, year2) {
         pakshya_details.innerHTML = pakshya_details_ns;
       }
     });
-  
+
     console.info("Filling Lunar Data... Pakshya Info... DONE!");
 }
 
 function showCalendar(month, year) {
     // this funciton displays the calendar and all the data inside it
-    
+
     console.info("Generating Solar Nepal Sambat Calendar...");
-    
-    table_headers.innerHTML = "<th>आइतबाः</th><th>सोमबाः</th><th>मङ्लबाः</th>";
-    table_headers.innerHTML += "<th>बुधबाः</th><th>बिहिबाः</th><th>सुक्रबाः</th>";
-    table_headers.innerHTML += "<th class='saturday'>सनिबाः</th>";
 
     let equivalent_bs_date = convert_ns_to_bs(year, month, 1);
     let equivalent_bs_date_list = equivalent_bs_date.split(" ");
     let equivalent_bs_year = equivalent_bs_date_list[0];
     let equivalent_bs_month = equivalent_bs_date_list[1];
     let equivalent_bs_day = equivalent_bs_date_list[2];
+
+    if ((equivalent_bs_year == 2079 && equivalent_bs_month >= 2) || equivalent_bs_year > 2079) {
+      table_headers.innerHTML = "<th class='sundaytrial'>आइतबाः</th>";
+    }
+    else {
+      table_headers.innerHTML = "<th>आइतबाः</th>";
+    }
+    table_headers.innerHTML += "<th>सोमबाः</th><th>मङ्लबाः</th>";
+    table_headers.innerHTML += "<th>बुधबाः</th><th>बिहिबाः</th><th>सुक्रबाः</th>";
+    table_headers.innerHTML += "<th class='saturday'>सनिबाः</th>";
 
     let equivalent_ad_date = convert_bs_to_ad(equivalent_bs_year, equivalent_bs_month, equivalent_bs_day);
 
@@ -448,6 +454,12 @@ function showCalendar(month, year) {
                 let bs_year = bs_list[0];
                 let bs_month = bs_list[1];
                 let bs_date = bs_list[2];
+
+                if ((bs_year == 2079 && bs_month >= 2) || bs_year > 2079) {
+                  if (j == 0) {
+                    cell.classList.add("sundaytrial");
+                  }
+                }
 
                 let ad_list = convert_bs_to_ad(bs_year, bs_month, bs_date).split(" ");
                 let ad_year = ad_list[0];

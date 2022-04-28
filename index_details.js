@@ -140,6 +140,15 @@ function tdclick(id) {
     title.classList.remove('saturday');
   }
 
+  if ((bs_year == 2079 && bs_month >= 2) || bs_year > 2079) {
+    if(nepali_day == 0) {
+      title.classList.add('sundaytrial');
+    }
+    else {
+      title.classList.remove('sundaytrial');
+    }
+  }
+
   if (bs_year < 2070 || bs_year > 2079) {
     console.info("Generating Default Content...");
     let default_content = "";
@@ -229,7 +238,7 @@ function tdclick(id) {
   nepal_event_req.open('GET', json_url, true);
   nepal_event_req.onload = function() {
     let events = JSON.parse(this.response);
-    
+
     console.info("Populating Lunar Details...");
 
     let info_content = '<div id="tithi" class="' + lunar_class + '">';
@@ -251,9 +260,9 @@ function tdclick(id) {
     //   info_content += "<br />";
     // }
     info_content += "<br />";
-    
+
     console.info("Populating Lunar Details... DONE!");
-    
+
     console.info("Displaying Other Calendar Date...");
 
     if (CALENDAR_MODE == 2) {
@@ -268,7 +277,7 @@ function tdclick(id) {
       info_content += "<span class='bs_left'>" + "वि. सं. " + nepali_date + "</span><br />";
       info_content += "<span class='ad_choco'>" + ad_date_list[2] + ad_date_sub + " " + AD_MONTHS[ad_date_list[1] - 1] + " " + ad_date_list[0] + " AD</span>";
     }
-    
+
     console.info("Displaying Other Calendar Date... DONE");
 
     let has_events = false;
