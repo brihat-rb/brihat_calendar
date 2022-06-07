@@ -140,7 +140,7 @@ function tdclick(id) {
     title.classList.remove('saturday');
   }
 
-  if ((bs_year == 2079 && bs_month >= 2) || bs_year > 2079) {
+  if (bs_year == 2079 && bs_month == 2) {
     if(nepali_day == 0) {
       title.classList.add('sundaytrial');
     }
