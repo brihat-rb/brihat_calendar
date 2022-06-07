@@ -99,12 +99,13 @@ function showADCalendar(month, year) {
     let bs_year_end = bs_end_date_list_from_ns[0];
     let bs_month_end = BS_MONTHS_NEP[bs_end_date_list_from_ns[1] - 1];
 
-    if ((bs_start_date_list_from_ns[0] == 2079 && bs_start_date_list_from_ns[1] >= 2) || bs_start_date_list_from_ns[0] > 2079) {
-      table_headers.innerHTML = "<th class='sundaytrial'>&ensp;SUN&ensp;</th>";
-    }
-    else {
-      table_headers.innerHTML = "<th>&ensp;SUN&ensp;</th>";
-    }
+//     if ((bs_start_date_list_from_ns[0] == 2079 && bs_start_date_list_from_ns[1] >= 2) || bs_start_date_list_from_ns[0] > 2079) {
+//       table_headers.innerHTML = "<th class='sundaytrial'>&ensp;SUN&ensp;</th>";
+//     }
+//     else {
+//       table_headers.innerHTML = "<th>&ensp;SUN&ensp;</th>";
+//     }
+    table_headers.innerHTML = "<th>&ensp;SUN&ensp;</th>";
     table_headers.innerHTML += "<th>&ensp;MON&ensp;</th>";
     table_headers.innerHTML += "<th>&ensp;TUE&ensp;</th><th>&ensp;WED&ensp;</th>";
     table_headers.innerHTML += "<th>&ensp;THU&ensp;</th><th>&ensp;FRI&ensp;</th>";
@@ -177,7 +178,7 @@ function showADCalendar(month, year) {
                 let bs_month = bs_list[1];
                 let bs_date = bs_list[2];
 
-                if ((bs_year == 2079 && bs_month >= 2) || bs_year > 2079) {
+                if (bs_year == 2079 && bs_month == 2) {
                   if (j == 0) {
                     cell.classList.add("sundaytrial");
                   }
@@ -229,7 +230,7 @@ function showADCalendar(month, year) {
 function showBSCalendar(month, year) {
     console.info("Generating Bikram Sambat Calendar...");
     // this funciton displays the BS calendar and all the data inside it
-    if ((year == 2079 && month >= 2) || year > 2079) {
+    if (year == 2079 && month == 2) {
       table_headers.innerHTML = "<th class='sundaytrial'>आइतबार</th>";
     }
     else {
@@ -334,7 +335,7 @@ function showBSCalendar(month, year) {
                   cell.classList.add("saturday");
                 }
 
-                if ((year == 2079 && month >= 2) || year > 2079) {
+                if (year == 2079 && month == 2) {
                   if (j == 0) {
                     cell.classList.add("sundaytrial");
                   }
