@@ -61,7 +61,7 @@ function show_public_holidays(bs_year_start, bs_year_end, bs_month_start, bs_mon
             }
 
             // special case if specific holiday occurs on sundaytrial (>=2079-02)
-            if ((parseInt(complete_date.substring(0,4)) == 2079 && parseInt(complete_date.substring(5,7)) >= 2) || parseInt(complete_date.substring(0,4)) > 2079) {
+            if ((parseInt(complete_date.substring(0,4)) == 2079 && parseInt(complete_date.substring(5,7)) == 2)) {
               if (date_node.classList.contains('sundaytrial')) {
                 date_node.classList.add('national_holiday');
               }
@@ -121,7 +121,7 @@ function add_public_holiday_info(complete_date, has_events) {
       date_detail_popup_title.classList.add('saturday');
     }
     // special case when specific holiday lies on sundaytrial after 2079-02
-    if ((parseInt(complete_date.substring(0,4)) == 2079 && parseInt(complete_date.substring(5,7)) >= 2) || parseInt(complete_date.substring(0,4)) > 2079) {
+    if ((parseInt(complete_date.substring(0,4)) == 2079 && parseInt(complete_date.substring(5,7)) == 2)) {
       if (date_detail_popup_title.classList.contains('sundaytrial')) {
         date_detail_popup_title.classList.remove('sundaytrial');
         date_detail_popup_title.classList.add('sundaytrial');
