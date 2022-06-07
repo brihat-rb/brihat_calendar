@@ -347,12 +347,13 @@ function showCalendar(month, year) {
     let equivalent_bs_month = equivalent_bs_date_list[1];
     let equivalent_bs_day = equivalent_bs_date_list[2];
 
-    if (equivalent_bs_year == 2079 && equivalent_bs_month == 2) {
-      table_headers.innerHTML = "<th class='sundaytrial'>आइतबाः</th>";
-    }
-    else {
-      table_headers.innerHTML = "<th>आइतबाः</th>";
-    }
+//     if (equivalent_bs_year == 2079 && equivalent_bs_month == 2) {
+//       table_headers.innerHTML = "<th class='sundaytrial'>आइतबाः</th>";
+//     }
+//     else {
+//       table_headers.innerHTML = "<th>आइतबाः</th>";
+//     }
+    table_headers.innerHTML = "<th>आइतबाः</th>";
     table_headers.innerHTML += "<th>सोमबाः</th><th>मङ्लबाः</th>";
     table_headers.innerHTML += "<th>बुधबाः</th><th>बिहिबाः</th><th>सुक्रबाः</th>";
     table_headers.innerHTML += "<th class='saturday'>सनिबाः</th>";
