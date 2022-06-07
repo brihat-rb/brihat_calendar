@@ -347,7 +347,7 @@ function showCalendar(month, year) {
     let equivalent_bs_month = equivalent_bs_date_list[1];
     let equivalent_bs_day = equivalent_bs_date_list[2];
 
-    if ((equivalent_bs_year == 2079 && equivalent_bs_month >= 2) || equivalent_bs_year > 2079) {
+    if (equivalent_bs_year == 2079 && equivalent_bs_month == 2) {
       table_headers.innerHTML = "<th class='sundaytrial'>आइतबाः</th>";
     }
     else {
@@ -455,7 +455,7 @@ function showCalendar(month, year) {
                 let bs_month = bs_list[1];
                 let bs_date = bs_list[2];
 
-                if ((bs_year == 2079 && bs_month >= 2) || bs_year > 2079) {
+                if (bs_year == 2079 && bs_month == 2) {
                   if (j == 0) {
                     cell.classList.add("sundaytrial");
                   }
