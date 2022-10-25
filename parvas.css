@@ -1,0 +1,29 @@
+#parvas {
+    column-width: 300px;
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+    padding: 2px 2px 2px 2px;
+    border-style: dashed;
+    border-color:#dee2e6;
+    border-width: 3px;
+}
+  
+#parvas > span {
+    font-family: 'Laila', sans-serif;
+    display: inline-block;
+    margin-left: 30px;
+    text-indent: -30px;
+}
+
+table {
+    margin-bottom: 0 !important;
+}
+
+@media print {
+    #parvas {
+        display: block !important;
+    }
+    
+}

@@ -223,6 +223,7 @@ function showADCalendar(month, year) {
     show_public_holidays(bs_year_start, bs_year_end, bs_start_date_list_from_ns[1], bs_end_date_list_from_ns[1]);
     main_title.innerText = AD_MONTHS[month - 1] + " " + year + " (Brihat Calendar)";
     add_author_info(AD_MONTHS[month - 1], year);
+    add_parvas_list_ad(month, year);
     update_date_jumper(CALENDAR_MODE);
     console.info("Generating Anno Domini Calendar... DONE!");
 }
@@ -392,6 +393,7 @@ function showBSCalendar(month, year) {
     show_public_holidays(year, year, month, month);
     main_title.innerText = BS_MONTHS_NEP[month - 1] + " " + arabic_number_to_nepali(year) + " (Brihat Calendar)";
     add_author_info(BS_MONTHS_NEP[month - 1], arabic_number_to_nepali(year));
+    add_parvas_list_bs(month, year);
     update_date_jumper(CALENDAR_MODE);
     console.info("Generating Bikraml Sambat Calendar... DONE!");
 }

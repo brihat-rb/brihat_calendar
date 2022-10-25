@@ -506,6 +506,7 @@ function showCalendar(month, year) {
     show_public_holidays(bs_year_start, bs_year_end, bs_month_start, bs_month_end);
     main_title.innerText = NS_NEP[month - 1] + " " + arabic_number_to_nepali(year) + " (Brihat Calendar)";
     add_author_info(NS_NEP[month - 1], arabic_number_to_nepali(year));
+    add_parvas_list_ns(month, year);
     update_date_jumper(CALENDAR_MODE);
     console.info("Generating Solar Nepal Sambat Calendar... DONE!");
 }
