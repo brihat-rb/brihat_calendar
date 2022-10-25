@@ -395,7 +395,7 @@ function showBSCalendar(month, year) {
     add_author_info(BS_MONTHS_NEP[month - 1], arabic_number_to_nepali(year));
     add_parvas_list_bs(month, year);
     update_date_jumper(CALENDAR_MODE);
-    console.info("Generating Bikraml Sambat Calendar... DONE!");
+    console.info("Generating Bikram Sambat Calendar... DONE!");
 }
 
 function go_to_today() {

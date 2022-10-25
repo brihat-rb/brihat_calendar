@@ -6,7 +6,9 @@ function add_parvas_list_bs(month, year) {
     json_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/' + year + '_detailed.json';
   }
   else {
-    json_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/' + year + '.json';
+    console.warn("BS Year Range Invalid (Valid: 2079-2079) Given: ", year);
+    document.getElementById("parvas").innerHTML = "";
+    return;
   }
   
   let parvas = "<span style='text-decoration: underline;'>पर्वहरूः</span><br />";
@@ -40,7 +42,10 @@ function add_parvas_list_bs(month, year) {
       if(span_html != "") {
         console.info("Found an event: ", span_html);
         parvas += "<span id=" + year.toString() + "-" + month.toString().padStart(2,"0") + "-" + date.toString().padStart(2, "0") + "_events>" + span_html + "</span><br />";
-      }  
+      }
+      else {
+        span_html = "";
+      }
     }
 
     document.getElementById("parvas").innerHTML = parvas;
@@ -71,7 +76,6 @@ function add_parvas_list_bs(month, year) {
 function add_parvas_list_ad(month, year) {
   var int_parvas_event_req = new XMLHttpRequest();
   var int_event_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/international_events.json';
-  
   
   let parvas = "<span style='text-decoration: underline;'>International Events:</span><br />";
   int_parvas_event_req.open('GET', int_event_url, true);
