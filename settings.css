@@ -1,0 +1,101 @@
+#setting_pane_author {
+    text-align: center;
+    position: fixed;
+    bottom: 25px;
+    width: 300px;
+}
+
+#settings {
+    position: absolute;
+    left: 25px;
+    top: 25px;
+    display: none;
+}
+
+.fa-spin-hover:hover {
+    animation: fa-spin 2s infinite linear;
+    cursor: pointer;
+}
+
+#settings_dismiss {
+    position: absolute;
+    left: 15px;
+    top: 25px;
+}
+
+#settings_title {
+    text-align: center;
+    top: 26px;
+    position: relative;
+    font-size: 23px;
+}
+
+#preferences_list {
+    background: url('watermark.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto 60%;
+}
+
+#settings_pane > ul {
+    padding-left: 15px;
+}
+
+.wrapper {
+    display: block;
+}
+
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -310px;
+    z-index: 999;
+    background: rgb(255, 255, 255);
+    color: #333;
+    transition: all .3s;
+    box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.5);
+    text-align: left;
+}
+ 
+.sidebar.active {
+    left: 0;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+li > label {
+    margin: 0;
+    padding: 0;
+}
+
+.gear_hr {
+    margin: 0 0 10px 0;
+    border: 2px solid #333;
+    width: 80%;
+}
+
+#config_mgmt {
+    display: flex;
+    width: 100%;
+    padding: 0 15px 0 15px;
+    flex-flow: column;
+}
+
+.btn {
+    margin: 3px;
+}
+
+#save_preferences {
+
+}
+
+@media print {
+    #settings, .sidebar {
+        display: none;
+    }
+    
+}

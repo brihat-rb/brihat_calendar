@@ -6,11 +6,13 @@
   <title>Brihat Calendar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="./public_holidays.css" />
   <link rel="stylesheet" href="./index.css" />
   <link rel="stylesheet" href="./index_cal_conv.css" />
   <link rel="stylesheet" href="./index_details.css" />
   <link rel="stylesheet" href="./parvas.css" />
+  <link rel="stylesheet" href="./settings.css" />
   <link rel="icon" href="logo.svg">
   <meta name="theme-color" content="#ffa500">
   <link rel="manifest" href="./manifest.json">
@@ -44,11 +46,11 @@
         </div>
 
         <button class="btn btn-outline-dark btn-sm" id="app_open_link" style="display: none;" onclick="location.href='brihat://calendar'">OPEN IN APP</button>
-        <div id="date_converter_div">
+        <div id="date_converter_div" style="display: none;">
           <a id="solarnsconverter" href="https://brihatrb.com.np/solarnsconverter/solarnsconverter.html"> &raquo; Solar Nepal Sambat Converter &laquo; </a>
         </div>
 
-        <button class="btn btn-outline-dark btn-sm" id="print" onclick="print()">&#x2399; PRINT THIS MONTH &#x2399;</button>
+        <button class="btn btn-outline-dark btn-sm" id="print" onclick="print()" style="display: none;">&#x2399; PRINT THIS MONTH &#x2399;</button>
 
         <form id="brihat_calendar_date_jumper" class="form-inline">
           <label class="col-sm-2" for="month">Go To: </label>
@@ -100,6 +102,42 @@
       <div id="user_info"></div>
       <div id="g_info"></div>
     </div>
+
+    <!-- added on 25 OCT 2022: preferences -->
+    <div id="settings"><i class="fa fa-cog fa-3x fa-spin-hover" aria-hidden="true"></i></div>
+
+    <nav id="settings_pane" class="sidebar">
+      <div id="settings_title">PREFERENCES</div>
+      <div id="settings_dismiss" class="dismiss">
+        <i class="fa fa-arrow-left fa-2x"></i>
+      </div>
+      <br /><br /><br />
+      <ul id="preferences_list" class="list-unstyled">
+        <li>Show/Hide Components</li>
+        <hr class="gear_hr" />
+        <li><input type="checkbox" id="check_tithis" onchange="toggle_tithis()" checked autocomplete="off"/><label for="check_tithis">&nbsp;Show Tithis</label></li>
+        <li><input type="checkbox" id="check_info_box" onchange="toggle_info_box()" autocomplete="off"/><label for="check_info_box">&nbsp;Show Event Info Box</label></li>
+        <li><input type="checkbox" id="check_converter_link" onchange="toggle_converter_link()" autocomplete="off"/><label for="check_converter_link">&nbsp;Show Date Converter Link</label></li>
+        <li><input type="checkbox" id="check_print_button" onchange="toggle_print_button()" autocomplete="off"/><label for="check_print_button">&nbsp;Show Print Button</label></li>
+        <li><input type="checkbox" id="check_date_jumper" onchange="toggle_date_jumper()" checked autocomplete="off"/><label for="check_date_jumper">&nbsp;Show Date Jumper</label></li>
+        <br />
+        <li>Appearance</li>
+        <hr class="gear_hr" />
+        <li><input type="checkbox" id="invert_color" onchange="toggle_invert_color()" autocomplete="off"/><label for="invert_color">&nbsp;Invert Color</label></li>
+      </ul>
+
+      <br /><br />
+
+      <div id="config_mgmt">
+        <button id="save_preferences" class="btn btn-info" onclick="save_current_config()">SAVE CURRENT CONFIG</button>
+        <button id="reset_default" class="btn btn-dark" onclick="reset_default_config()">RESTORE DEFAULT CONFIG</button>
+      </div>
+
+      <div id="setting_pane_author">
+        &copy;<br />Brihat Ratna Bajracharya
+      </div>
+    </nav>
+
     <!-- <button name="jump" onclick="jump()">Go</button> -->
 
     <!-- Custom Scripts -->
@@ -115,6 +153,7 @@
     <script src="infos.js"></script>
     <script src="suggest_edit.js"></script>
     <script src="swipe_actions.js"></script>
+    <script src="settings.js"></script>
     
     <script>
       function on_window_resize() {
