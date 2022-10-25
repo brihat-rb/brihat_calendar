@@ -3,6 +3,8 @@
     position: fixed;
     bottom: 25px;
     width: 300px;
+    font-size: 14px;
+    font-family: 'Laila', sans-serif;
 }
 
 #settings {
@@ -87,10 +89,6 @@ li > label {
 
 .btn {
     margin: 3px;
-}
-
-#save_preferences {
-
 }
 
 @media print {
