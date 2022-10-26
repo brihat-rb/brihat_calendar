@@ -10,6 +10,26 @@ setting_pane_dismiss.addEventListener('click', function(event) {
     setting_pane.classList.toggle('active');
 });
 
+function toggle_all() {
+    let check_all = document.getElementById('check_all').checked;
+
+    if (check_all) {
+        document.getElementById('check_tithis').checked = true;
+        document.getElementById('check_info_box').checked = true;
+        document.getElementById('check_converter_link').checked = true;
+        document.getElementById('check_print_button').checked = true;
+        document.getElementById('check_date_jumper').checked = true;
+    }
+    else {
+        document.getElementById('check_tithis').checked = false;
+        document.getElementById('check_info_box').checked = false;
+        document.getElementById('check_converter_link').checked = false;
+        document.getElementById('check_print_button').checked = false;
+        document.getElementById('check_date_jumper').checked = false;
+    }
+    trigger_all_event();
+}
+
 function toggle_info_box() {
     let check_info_box = document.getElementById('check_info_box');
 
