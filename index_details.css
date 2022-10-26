@@ -227,7 +227,7 @@ input[type="submit"][disabled]:hover {
   }
 
   #prev_today_next, #date_converter_div, #print, #brihat_calendar_date_jumper, #user_info, #g_info, #app_open_link {
-    display: none;
+    display: none !important;
   }
 
   .national_holiday span h4 b {

@@ -4,9 +4,14 @@
   color-adjust: exact !important;  /* Firefox */
 }
 
+html {
+  line-height: 1.1 !important;
+}
+
 body {
   width: 80%;
   margin: 0 auto;
+  line-height: 1.1 !important;
 }
 
 .card-header {
