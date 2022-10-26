@@ -111,7 +111,7 @@
       <div id="settings_dismiss" class="dismiss">
         <i class="fa fa-arrow-left fa-2x"></i>
       </div>
-      <br /><br /><br />
+      <br /><br />
       <ul id="preferences_list" class="list-unstyled">
         <li>Show/Hide Components</li>
         <hr class="gear_hr" />
@@ -124,15 +124,19 @@
         <li>Appearance</li>
         <hr class="gear_hr" />
         <li><input type="checkbox" id="invert_color" onchange="toggle_invert_color()" autocomplete="off"/><label for="invert_color">&nbsp;Invert Color</label></li>
+        <li style="margin-top: 10px; font-size: small;">Event Info Box Language Config</li>
+        <hr class="gear_hr_2" />
+        <li><input type="checkbox" id="check_lang_info_solarns" onchange="toggle_lang_info_solarns('solarns')" autocomplete="off"/><label for="check_lang_info_solarns">&nbsp;<span>Show Solar Nepal Sambat Events in ENGLISH</span></label></li>
+        <li><input type="checkbox" id="check_lang_info_national" onchange="toggle_lang_info_solarns('national')" autocomplete="off"/><label for="check_lang_info_national">&nbsp;<span>Show National Events in ENGLISH</span></label></li>
+        <li><input type="checkbox" id="check_lang_info_international" onchange="toggle_lang_info_international()" autocomplete="off"/><label for="check_lang_info_international">&nbsp;<span>Show International Events in NEPALI</span></label></li>
+        <li><input type="checkbox" id="check_lang_info_other" onchange="toggle_lang_info_solarns('other')" autocomplete="off"/><label for="check_lang_info_other">&nbsp;<span>Show Other Events in NEPALI</span></label></li>
       </ul>
-
-      <br /><br />
 
       <div id="config_mgmt">
         <button id="save_preferences" class="btn btn-info" onclick="save_current_config()">SAVE CURRENT CONFIG</button>
         <button id="reset_default" class="btn btn-dark" onclick="reset_default_config()">RESTORE DEFAULT CONFIG</button>
       </div>
-
+      <br />
       <div id="setting_pane_author"></div>
     </nav>
 

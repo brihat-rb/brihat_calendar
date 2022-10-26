@@ -22,7 +22,7 @@
 #settings_dismiss {
     position: absolute;
     left: 15px;
-    top: 25px;
+    top: 23px;
 }
 
 #settings_title {
@@ -37,6 +37,10 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: auto 60%;
+}
+
+#settings_pane{
+    line-height: 1.35;
 }
 
 #settings_pane > ul {
@@ -74,10 +78,21 @@ li > label {
     padding: 0;
 }
 
+li > label > span {
+    font-size: 10px;
+    color:rgb(15, 15, 15);
+}
+
 .gear_hr {
     margin: 0 0 10px 0;
     border: 2px solid #333;
     width: 80%;
+}
+
+.gear_hr_2 {
+    margin: 0 0 5px 0;
+    border: 1.5px solid #333;
+    width: 75%;
 }
 
 #config_mgmt {

@@ -88,6 +88,59 @@ function toggle_invert_color() {
     console.info("Preferences (Invert Color) set to: ", invert_color.checked);
 }
 
+function toggle_lang_info_international() {
+    let check_lang_info_international = document.getElementById('check_lang_info_international');
+
+    if(localStorage.CALMODE != 1) {
+        console.info("International Event Language Change not applicable in this calendar view.");
+        return;
+    }
+
+    if(check_lang_info_international.checked == true) {
+        parvas_info_box_lang_session[1] = "np";
+        add_parvas_list_ad(currentMonth, currentYear);
+    }
+    else {
+        parvas_info_box_lang_session[1] = "en";
+        add_parvas_list_ad(currentMonth, currentYear);
+    }
+    console.info("Event Info Lang (AD Calendar) set to: ", check_lang_info_international.checked ? "np" : "en");
+}
+
+function toggle_lang_info_solarns(type = "") {
+    let check_lang_info_solarns = document.getElementById('check_lang_info_solarns');
+
+    if(localStorage.CALMODE != 0) {
+        console.info("Language change of this event is not applicable in current calendar view.");
+        return;
+    }
+
+    switch(type) {
+        case "solarns":
+            parvas_info_box_lang_session[2] = check_lang_info_solarns.checked ? "en": "np";
+            add_parvas_list_ns(currentMonth, currentYear);
+            console.info("Solar Nepal Sambat Event Info Language (SNS Calendar) set to: ", check_lang_info_solarns.checked ? "en" : "np");
+            break;
+
+        case "national":
+            parvas_info_box_lang_session[3] = check_lang_info_national.checked ? "en" : "np";
+            add_parvas_list_ns(currentMonth, currentYear);
+            console.info("National Event Info Lang (SNS Calendar) set to: ", check_lang_info_national.checked ? "en" : "np");
+            break;
+
+        case "other":
+            parvas_info_box_lang_session[4] = check_lang_info_other.checked ? "np" : "en";
+            add_parvas_list_ns(currentMonth, currentYear);
+            console.info("Other Event Info Lang (SNS Calendar) set to: ", check_lang_info_other.checked ? "np" : "en");
+            break;
+
+        default:
+            console.info("Solar Nepal Sambat Event Info Language (SNS Calendar) set to: ", check_lang_info_solarns.checked ? "en" : "np");
+            console.info("National Event Info Lang (SNS Calendar) set to: ", check_lang_info_national.checked ? "en" : "np");
+            console.info("Other Event Info Lang (SNS Calendar) set to: ", check_lang_info_other.checked ? "np" : "en");
+    }
+}
+
 function trigger_all_event() {
     toggle_tithis();
     toggle_info_box();
@@ -95,11 +148,17 @@ function trigger_all_event() {
     toggle_print_button();
     toggle_date_jumper();
     toggle_invert_color();
+    toggle_lang_info_solarns();
+    toggle_lang_info_international();
 }
 
 var config = [];
 const default_config = [true, false, false, false, true, false];
 
+
+// parvas info box lang: values (np, en): [BS, INTERNAT, SNS, NAT, OTHER]
+const parvas_info_box_lang_default = ["np", "en", "np", "np", "en"];
+let parvas_info_box_lang = [];
 
 function save_current_config() {
     config[0] = document.getElementById('check_tithis').checked;
@@ -109,17 +168,46 @@ function save_current_config() {
     config[4] = document.getElementById('check_date_jumper').checked;
     config[5] = document.getElementById('invert_color').checked;
     localStorage.setItem("config", JSON.stringify(config));
+    
+    parvas_info_box_lang[0] = 'np';
+    parvas_info_box_lang[1] = document.getElementById('check_lang_info_international').checked ? 'np' : 'en';
+    parvas_info_box_lang[2] = document.getElementById('check_lang_info_solarns').checked ? 'en' : 'np';
+    parvas_info_box_lang[3] = document.getElementById('check_lang_info_national').checked ? 'en' : 'np';
+    parvas_info_box_lang[4] = document.getElementById('check_lang_info_other').checked ? 'np' : 'en';
+    localStorage.setItem("info_box_lang", JSON.stringify(parvas_info_box_lang));
+    console.info("Current Event Info Language Preferences Saved Successfully.");
+
     console.info("Current Preferences Saved Successfully.");
     swal("Success!", "Current Config Saved", "success");
 }
 
 function load_config(def = false) {
-    config = JSON.parse(localStorage.getItem("config"));
-    if(config == null || def == true) {
+    config = JSON.parse(localStorage.config);
+    parvas_info_box_lang_session = JSON.parse(localStorage.info_box_lang);
+
+    if(def == true) {
+        localStorage.setItem("config", JSON.stringify(default_config));
+        console.info("No User Preferences Found: Default Loaded and Saved.");
+
+        localStorage.setItem("info_box_lang", JSON.stringify(parvas_info_box_lang_default));
+        console.info("No Language Preferences Found: Default Loaded and Saved.");
+
+
+        load_config();
+    }
+    
+    else if (config == null) {
         localStorage.setItem("config", JSON.stringify(default_config));
         console.info("No User Preferences Found: Default Loaded and Saved.");
         load_config();
     }
+
+    else if (parvas_info_box_lang == null) {
+        localStorage.setItem("info_box_lang", JSON.stringify(parvas_info_box_lang_default));
+        console.info("No Language Preferences Found: Default Loaded and Saved.");
+        load_config();
+    }
+
     else {
         document.getElementById('check_tithis').checked = config[0];
         document.getElementById('check_info_box').checked = config[1];
@@ -127,6 +215,12 @@ function load_config(def = false) {
         document.getElementById('check_print_button').checked = config[3];
         document.getElementById('check_date_jumper').checked = config[4];
         document.getElementById('invert_color').checked = config[5];
+
+        document.getElementById("check_lang_info_solarns").checked = parvas_info_box_lang_session[2] == "en";
+        document.getElementById("check_lang_info_national").checked = parvas_info_box_lang_session[3] == "en";
+        document.getElementById("check_lang_info_international").checked = parvas_info_box_lang_session[1] == "np";
+        document.getElementById("check_lang_info_other").checked = parvas_info_box_lang_session[4] == "np";
+
         trigger_all_event();
         console.info("User Preferences Loaded Successfully.");
     }

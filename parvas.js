@@ -1,5 +1,10 @@
 /* REQUIRES: NS.js, NS_BS.js, NS_AD.js */
 
+let parvas_info_box_lang_session = ["np", "en", "np", "np", "en"];
+if(localStorage.info_box_lang != null) {
+  parvas_info_box_lang_session = JSON.parse(localStorage.info_box_lang);
+}
+
 function add_parvas_list_bs(month, year) {
   var parvas_event_req = new XMLHttpRequest();
   if (year >= 2076 && year <= 2079) {
@@ -86,7 +91,12 @@ function add_parvas_list_ad(month, year) {
       let int_parva_key = month.toString().padStart(2, "0") + "-" + date.toString().padStart(2, "0");
       let span_html = "";
       if (events.data[int_parva_key]) {
-        span_html += date + " - " + events.data[int_parva_key][0];
+        if (parvas_info_box_lang_session[1] == "np"){
+          span_html += date + " - " + events.data[int_parva_key][1];
+        }
+        else {
+          span_html += date + " - " + events.data[int_parva_key][0];
+        }
       }
       if(span_html != "") {
         let bs_list = convert_ad_to_bs(year, month, date).split(" ");
@@ -149,7 +159,12 @@ function add_parvas_list_ns(month, year) {
       let span_html = "";
 
       if (events.data[sns_parva_key]) {
-        span_html += arabic_number_to_nepali(date) + " - " + events.data[sns_parva_key][1];
+        if (parvas_info_box_lang_session[2] == "en"){
+          span_html += arabic_number_to_nepali(date) + " - " + events.data[sns_parva_key][0];
+        }
+        else {
+          span_html += arabic_number_to_nepali(date) + " - " + events.data[sns_parva_key][1];
+        }
       }
       if(span_html != "") {
         let bs_list = convert_ns_to_bs(year, month, date).split(" ");
@@ -192,7 +207,12 @@ function add_parvas_list_ns(month, year) {
       let nat_parva_key = bs_month.toString().padStart(2, "0") + "-" + bs_date.toString().padStart(2, "0");
       let span_html = "";
       if (events.data[nat_parva_key]) {
-        span_html += arabic_number_to_nepali(date) + " - " + events.data[nat_parva_key][1];
+        if (parvas_info_box_lang_session[3] == "en"){
+          span_html += arabic_number_to_nepali(date) + " - " + events.data[nat_parva_key][0];
+        }
+        else {
+          span_html += arabic_number_to_nepali(date) + " - " + events.data[nat_parva_key][1];
+        }
       }
       if(span_html != "") {
         has_parvanat = true;
@@ -231,7 +251,12 @@ function add_parvas_list_ns(month, year) {
       let other_parva_key = ad_month.toString().padStart(2, "0") + "-" + ad_date.toString().padStart(2, "0");
       let span_html = "";
       if (events.data[ad_year][other_parva_key]) {
-        span_html += arabic_number_to_nepali(date) + " - " + events.data[ad_year][other_parva_key][0];
+        if (parvas_info_box_lang_session[4] == "np"){
+          span_html += arabic_number_to_nepali(date) + " - " + events.data[ad_year][other_parva_key][1];
+        }
+        else {
+          span_html += arabic_number_to_nepali(date) + " - " + events.data[ad_year][other_parva_key][0];
+        }
       }
       if(span_html != "") {
         has_parvaother = true;
