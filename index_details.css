@@ -244,6 +244,23 @@ input[type="submit"][disabled]:hover {
     /* padding-bottom: 0.2em; */
   }
 
+  table {
+    border: 3px solid black !important;
+  }
+
+  thead {
+    border: 3px solid black !important;
+    border-bottom: double !important;
+  }
+
+  td.national_holiday, td.saturday {
+    border: 2px solid red !important;
+  }
+
+  td.specific_holiday {
+    border: 1.5px solid darkturquoise !important;
+  }
+
   .specific_holiday span h4 b {
     background: darkturquoise;
     border-radius: 0.9em;
