@@ -238,9 +238,9 @@ input[type="submit"][disabled]:hover {
     color: #ffffff;
     display: inline-block;
     font-weight: bold;
-    line-height: 1.8em;
+    line-height: 30px;
     text-align: center;
-    width: 1.8em;
+    width: 40px;
     /* padding-bottom: 0.2em; */
   }
 
@@ -252,9 +252,9 @@ input[type="submit"][disabled]:hover {
     color: #ffffff;
     display: inline-block;
     font-weight: bold;
-    line-height: 1.8em;
+    line-height: 30px;
     text-align: center;
-    width: 1.8em;
+    width: 40px;
     /* padding-bottom: 0.2em; */
   }
 }

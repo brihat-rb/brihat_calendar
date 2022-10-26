@@ -26,6 +26,10 @@ body {
   margin-bottom: 7px !important;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.25rem;
+}
+
 table {
   border-collapse: separate;
   border-spacing: 1px;
