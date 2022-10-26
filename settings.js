@@ -185,6 +185,7 @@ function save_current_config() {
 function load_config(def = false) {
     if (localStorage.config == null) {
         config = default_config;
+        localStorage.setItem("config", JSON.stringify(default_config));
     }
     else {
         config = JSON.parse(localStorage.config);
@@ -192,6 +193,7 @@ function load_config(def = false) {
 
     if (localStorage.info_box_lang == null) {
         parvas_info_box_lang_session = parvas_info_box_lang_default;
+        localStorage.setItem("info_box_lang", JSON.stringify(parvas_info_box_lang_default));
     }
 
     else {
