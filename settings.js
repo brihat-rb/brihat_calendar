@@ -175,6 +175,7 @@ function save_current_config() {
     parvas_info_box_lang[3] = document.getElementById('check_lang_info_national').checked ? 'en' : 'np';
     parvas_info_box_lang[4] = document.getElementById('check_lang_info_other').checked ? 'np' : 'en';
     localStorage.setItem("info_box_lang", JSON.stringify(parvas_info_box_lang));
+    parvas_info_box_lang_session = parvas_info_box_lang;
     console.info("Current Event Info Language Preferences Saved Successfully.");
 
     console.info("Current Preferences Saved Successfully.");
@@ -182,8 +183,20 @@ function save_current_config() {
 }
 
 function load_config(def = false) {
-    config = JSON.parse(localStorage.config);
-    parvas_info_box_lang_session = JSON.parse(localStorage.info_box_lang);
+    if (localStorage.config == null) {
+        config = default_config;
+    }
+    else {
+        config = JSON.parse(localStorage.config);
+    }
+
+    if (localStorage.info_box_lang == null) {
+        parvas_info_box_lang_session = parvas_info_box_lang_default;
+    }
+
+    else {
+        parvas_info_box_lang_session = JSON.parse(localStorage.info_box_lang);
+    }
 
     if(def == true) {
         localStorage.setItem("config", JSON.stringify(default_config));
@@ -191,7 +204,6 @@ function load_config(def = false) {
 
         localStorage.setItem("info_box_lang", JSON.stringify(parvas_info_box_lang_default));
         console.info("No Language Preferences Found: Default Loaded and Saved.");
-
 
         load_config();
     }
