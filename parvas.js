@@ -11,7 +11,7 @@ function add_parvas_list_bs(month, year) {
     json_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/' + year + '_detailed.json';
   }
   else {
-    console.warn("BS Year Range Invalid (Valid: 2079-2079) Given: ", year);
+    console.warn("BS Year Range Invalid (Valid: 2076-2079) Given: ", year);
     document.getElementById("parvas").innerHTML = "";
     return;
   }
