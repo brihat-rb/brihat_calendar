@@ -45,6 +45,9 @@ other_calendar_event_req.onload = function() {
 }
 other_calendar_event_req.send();
 
+var sunrises = "";
+var sunsets = "";
+
 function convert_to_nepali(date_string) {
   var date_split = date_string.split("-");
   var result = "";
@@ -254,6 +257,45 @@ function tdclick(id) {
     info_content += events.data[bs_month - 1][bs_date - 1].tithi + '</div>';
     if (bs_year >= 2070 && bs_year <= 2075) {
       info_content += "<div style='font-variant: small-caps; font-size=5px; color: darkgray;'>* detail info not available *</div>";
+    }
+
+    if(ad_date_list[0] == 2022) {
+      var sunrise_url = 'https://raw.githubusercontent.com/brihat-rb/brihat_calendar/main/data/sunrise_' + ad_date_list[0].toString() + '.json';
+      var sunrise_req = new XMLHttpRequest();
+      
+      sunrise_req.open('GET', sunrise_url, false);
+      sunrise_req.onload = function() {
+        console.log(this.response);
+        sunrises = JSON.parse(this.response);
+        console.info("Sunrise Times Loaded!");
+      }
+      sunrise_req.send();
+      
+      var sunset_url = 'https://raw.githubusercontent.com/brihat-rb/brihat_calendar/main/data/sunset_' + ad_date_list[0].toString() + '.json';
+      var sunset_req = new XMLHttpRequest();
+      
+      sunset_req.open('GET', sunset_url, false);
+      sunset_req.onload = function() {
+        sunsets = JSON.parse(this.response);
+        console.info("Sunset Times Loaded!");
+      }
+      sunset_req.send();
+      
+      var sunrisesunset = "";
+      var sr = sunrises[ad_date_list[1] - 1][ad_date_list[2] - 1];
+      var ss = sunsets[ad_date_list[1] - 1][ad_date_list[2] - 1];
+      if (CALENDAR_MODE == 0 || CALENDAR_MODE == 2) {
+        if(sr != "") {
+          sr = arabic_number_to_nepali(sr.split(":")[0]) + " : " + arabic_number_to_nepali(sr.split(":")[1]);
+          ss = arabic_number_to_nepali(ss.split(":")[0]) + " : " + arabic_number_to_nepali(ss.split(":")[1]);
+        }
+      }
+      sunrisesunset = "<span id='sunrise'><i class='fa fa-sun-o' aria-hidden='true'></i>&ensp;" + sr + "</span>&emsp;&emsp;";
+      sunrisesunset += "<span id='sunset'><i class='fa fa-moon-o' aria-hidden='true'></i>&ensp;" + ss + "</span><br />";
+
+      if (sunrisesunset != "") {
+        info_content += sunrisesunset;
+      }
     }
 
     // if (CALENDAR_MODE != 0) {
