@@ -259,19 +259,18 @@ function tdclick(id) {
       info_content += "<div style='font-variant: small-caps; font-size=5px; color: darkgray;'>* detail info not available *</div>";
     }
 
-    if(ad_date_list[0] == 2022) {
-      var sunrise_url = 'https://raw.githubusercontent.com/brihat-rb/brihat_calendar/main/data/sunrise_' + ad_date_list[0].toString() + '.json';
+    if(ad_date_list[0] >= 2019 && ad_date_list[0] <= 2025) {
+      var sunrise_url = 'https://raw.githubusercontent.com/brihat-rb/brihat_calendar/main/data/sunrise_sunset_json/sunrise_' + ad_date_list[0].toString() + '.json';
       var sunrise_req = new XMLHttpRequest();
       
       sunrise_req.open('GET', sunrise_url, false);
       sunrise_req.onload = function() {
-        console.log(this.response);
         sunrises = JSON.parse(this.response);
         console.info("Sunrise Times Loaded!");
       }
       sunrise_req.send();
       
-      var sunset_url = 'https://raw.githubusercontent.com/brihat-rb/brihat_calendar/main/data/sunset_' + ad_date_list[0].toString() + '.json';
+      var sunset_url = 'https://raw.githubusercontent.com/brihat-rb/brihat_calendar/main/data/sunrise_sunset_json/sunset_' + ad_date_list[0].toString() + '.json';
       var sunset_req = new XMLHttpRequest();
       
       sunset_req.open('GET', sunset_url, false);
@@ -296,6 +295,9 @@ function tdclick(id) {
       if (sunrisesunset != "") {
         info_content += sunrisesunset;
       }
+    }
+    else {
+      console.info("Sunrise/Sunset data not available beyond 2019-2025, Given: ", ad_date_list[0]);
     }
 
     // if (CALENDAR_MODE != 0) {
