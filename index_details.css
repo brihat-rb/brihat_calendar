@@ -17,6 +17,10 @@
   background-size: auto 80%;
 }
 
+.modal-content {
+  line-height: 1.5;
+}
+
 .ns_left, .ad_left, .bs_left {
   color: green;
 }
