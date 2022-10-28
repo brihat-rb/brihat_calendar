@@ -21,6 +21,20 @@ table {
     margin-bottom: 0 !important;
 }
 
+
+@media only screen and (max-width: 768px) {
+    #parvas {
+      width: 85%;
+    }
+}
+
+
+@media only screen and (max-width: 425px) {
+    #parvas {
+        width: 90%;
+    }
+}
+
 @media print {
     #parvas {
         display: block !important;

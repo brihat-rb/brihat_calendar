@@ -177,6 +177,11 @@ select {
     width: 100%;
   }
 
+  * {
+    font-family: 'Gotu', sans-serif;
+    font-weight: bolder;
+  }
+
   .card-header {
     background: url("logo.svg");
     background-repeat: no-repeat;
@@ -217,6 +222,11 @@ select {
 }
 
 @media only screen and (max-width: 555px) {
+  * {
+    font-family: 'Laila', sans-serif;
+    font-weight: bolder;
+  }
+
   .table th {
     margin: 2px;
     padding: 15px;
