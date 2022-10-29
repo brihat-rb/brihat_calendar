@@ -168,7 +168,9 @@ function trigger_all_event() {
     toggle_print_button();
     toggle_date_jumper();
     toggle_invert_color();
-    toggle_lang_info_solarns();
+    toggle_lang_info_solarns("solarns");
+    toggle_lang_info_solarns("national");
+    toggle_lang_info_solarns("other");
     toggle_lang_info_international();
 }
 
