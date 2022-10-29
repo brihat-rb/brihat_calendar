@@ -108,6 +108,23 @@ function toggle_invert_color() {
     console.info("Preferences (Invert Color) set to: ", invert_color.checked);
 }
 
+function toggle_pakshya_lang(){
+    let lunar_month_info = document.getElementById("lunar_details");
+    let check_pakshya_lang = document.getElementById("check_pakshya_lang");
+
+    if(check_pakshya_lang.checked == true) {
+        if(!lunar_month_info.classList.contains('pakshya-details-nep')) {
+            lunar_month_info.click();
+        }
+    }
+    else {
+        if(lunar_month_info.classList.contains('pakshya-details-nep')) {
+            lunar_month_info.click();
+        }
+    }
+    console.info("Preferences (Lunar Month Info Lang) set to: ", check_pakshya_lang.checked ? "Nepali" : "Default");
+}
+
 function toggle_lang_info_international() {
     let check_lang_info_international = document.getElementById('check_lang_info_international');
 
@@ -168,6 +185,7 @@ function trigger_all_event() {
     toggle_print_button();
     toggle_date_jumper();
     toggle_invert_color();
+    toggle_pakshya_lang();
     toggle_lang_info_solarns("solarns");
     toggle_lang_info_solarns("national");
     toggle_lang_info_solarns("other");
@@ -175,7 +193,7 @@ function trigger_all_event() {
 }
 
 var config = [];
-const default_config = [true, false, false, false, true, false];
+const default_config = [true, false, false, false, true, false, false];
 
 
 // parvas info box lang: values (np, en): [BS, INTERNAT, SNS, NAT, OTHER]
@@ -189,6 +207,7 @@ function save_current_config() {
     config[3] = document.getElementById('check_print_button').checked;
     config[4] = document.getElementById('check_date_jumper').checked;
     config[5] = document.getElementById('invert_color').checked;
+    config[6] = document.getElementById('check_pakshya_lang').checked;
     localStorage.setItem("config", JSON.stringify(config));
     
     parvas_info_box_lang[0] = 'np';
@@ -251,6 +270,7 @@ function load_config(def = false) {
         document.getElementById('check_print_button').checked = config[3];
         document.getElementById('check_date_jumper').checked = config[4];
         document.getElementById('invert_color').checked = config[5];
+        document.getElementById('check_pakshya_lang').checked = config[6];
 
         document.getElementById("check_lang_info_solarns").checked = parvas_info_box_lang_session[2] == "en";
         document.getElementById("check_lang_info_national").checked = parvas_info_box_lang_session[3] == "en";
@@ -287,4 +307,4 @@ load_config();
 
 document.getElementById("setting_pane_author").innerHTML = "<i class='fa fa-solid fa-copyright'></i><br />";
 document.getElementById("setting_pane_author").innerHTML += "सौ. ने. सं. " + arabic_number_to_nepali(ns_today_year) + " | " + AD_TODAY_YEAR + " AD | वि. सं. " + arabic_number_to_nepali(bs_today_year);
-document.getElementById("setting_pane_author").innerHTML += "<br />Brihat Ratna Bajracharya";
+document.getElementById("setting_pane_author").innerHTML += "<br />Brihat Ratna Bajracharya<br />v3.0<br /><br />";

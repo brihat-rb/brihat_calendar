@@ -53,7 +53,7 @@
         <button class="btn btn-outline-dark btn-sm" id="print" onclick="print()" style="display: none;">&#x2399; PRINT THIS MONTH &#x2399;</button>
 
         <form id="brihat_calendar_date_jumper" class="form-inline">
-          <label class="col-sm-2" for="month">Go To: </label>
+          <label class="col-sm-2" for="month">Jump To: </label>
           <select class="form-control col-sm-5" name="month" id="month" onchange="jump()"></select>
 
           <label for="year"></label>
@@ -125,6 +125,7 @@
         <li>Appearance</li>
         <hr class="gear_hr" />
         <li><input type="checkbox" id="invert_color" onchange="toggle_invert_color()" autocomplete="off"/><label for="invert_color">&nbsp;Invert Color</label></li>
+        <li><input type="checkbox" id="check_pakshya_lang" onchange="toggle_pakshya_lang()" autocomplete="off"/><label for="check_pakshya_lang">&nbsp;Show Lunar Months in NEPALI</label></li>
         <li style="margin-top: 10px; font-size: small;">Event Info Box Language Config</li>
         <hr class="gear_hr_2" />
         <li><input type="checkbox" id="check_lang_info_solarns" onchange="toggle_lang_info_solarns('solarns')" autocomplete="off"/><label for="check_lang_info_solarns">&nbsp;<span>Show Solar Nepal Sambat Events in ENGLISH</span></label></li>

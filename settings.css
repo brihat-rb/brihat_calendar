@@ -1,7 +1,7 @@
 #setting_pane_author {
     text-align: center;
-    position: fixed;
-    bottom: 25px;
+    /* position: fixed;
+    bottom: 25px; */
     width: 300px;
     font-size: 14px;
     font-family: 'Laila', sans-serif;
@@ -41,6 +41,7 @@
 
 #settings_pane{
     line-height: 1.35;
+    overflow-y: scroll;
 }
 
 #settings_pane > ul {
