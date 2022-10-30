@@ -327,12 +327,33 @@ function fill_lunar_data(year1, year2) {
       if (pakshya_details.innerHTML == pakshya_details_ns) {
         pakshya_details.innerHTML = pakshya_details_nep;
         pakshya_details.classList.add("pakshya-details-nep");
+        document.getElementById("check_pakshya_lang").checked = true;
       }
       else {
         pakshya_details.innerHTML = pakshya_details_ns;
+        document.getElementById("check_pakshya_lang").checked = false;
       }
     });
 
+    if(localStorage.config != null && JSON.parse(localStorage.config)[6]) {
+      if(pakshya_details.innerHTML == pakshya_details_ns) {
+        pakshya_details.innerHTML = pakshya_details_nep;
+        if (!pakshya_details.classList.contains('pakshya-details-nep')) {
+          pakshya_details.classList.add("pakshya-details-nep");
+        }
+      }
+      document.getElementById("check_pakshya_lang").checked = true;
+    }
+
+    if(localStorage.config != null && !JSON.parse(localStorage.config)[6]) {
+      if(pakshya_details.innerHTML == pakshya_details_nep) {
+        pakshya_details.innerHTML = pakshya_details_ns;
+        if (pakshya_details.classList.contains('pakshya-details-nep')) {
+          pakshya_details.classList.add("pakshya-details-nep");
+        }
+      }
+      document.getElementById("check_pakshya_lang").checked = false;
+    }
     console.info("Filling Lunar Data... Pakshya Info... DONE!");
 }
 

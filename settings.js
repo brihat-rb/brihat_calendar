@@ -119,6 +119,7 @@ function toggle_pakshya_lang(){
     }
     else {
         if(lunar_month_info.classList.contains('pakshya-details-nep')) {
+            lunar_month_info.classList.remove('pakshya-details-nep');
             lunar_month_info.click();
         }
     }
