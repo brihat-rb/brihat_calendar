@@ -1,14 +1,15 @@
 {
   "name": "Brihat Calendar",
   "short_name": "Brihat Calendar",
-  "start_url": "./brihat_calendar.html",
+  "id": "./index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#005A00",
   "theme_color": "#ffa500",
   "orientation": "any",
-  "description": "A Simple NS-AD-BS Calendar with events information",
+  "description": "A Simple Solar Nepal Sambat - Bikram Sambat - Anno Domini Calendar with tithis, national, international events, sunrise and sunset , and holiday information",
   "icons": [{
-    "src": "/brihat_calendar/brihat_calendar.png",
+    "src": "./brihat_calendar.png",
     "type": "image/png",
     "sizes": "512x512 256x256 192x192 128x128 64x64 32x32"
   }]
