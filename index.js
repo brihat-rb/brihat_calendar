@@ -19,6 +19,8 @@
 
 /* REQUIRES: NS.js, NS_BS.js, NS_AD.js */
 
+const END_BS_YEAR = 2080;
+
 let today = new Date();
 let AD_TODAY_YEAR = today.getFullYear();
 let AD_TODAY_MONTH = today.getMonth();
@@ -129,7 +131,7 @@ function fill_lunar_data(year1, year2) {
     var LUNAR_EVENTS_ONE = LUNAR_EVENTS;
     var LUNAR_EVENTS_TWO = LUNAR_EVENTS;
 
-    if (year1 >= 2070 && year1 <= 2079) {
+    if (year1 >= 2070 && year1 <= END_BS_YEAR) {
       var lunar_data_req1 = new XMLHttpRequest();
       lunar_data_req1.open('GET', lunar_data_url1, false);
       lunar_data_req1.onload = function() {
@@ -143,7 +145,7 @@ function fill_lunar_data(year1, year2) {
     }
 
     if (year1 != year2) {
-      if (year2 >= 2070 && year2 <= 2079) {
+      if (year2 >= 2070 && year2 <= END_BS_YEAR) {
         const lunar_data_url2 = "https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/brihat_calendar/data/" + year2.toString() + "_lunar_data.json";
 
         var lunar_data_req2 = new XMLHttpRequest();

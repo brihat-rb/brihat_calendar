@@ -26,11 +26,11 @@ if(localStorage.info_box_lang != null) {
 
 function add_parvas_list_bs(month, year) {
   var parvas_event_req = new XMLHttpRequest();
-  if (year >= 2076 && year <= 2079) {
+  if (year >= 2076 && year <= END_BS_YEAR) {
     json_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/' + year + '_detailed.json';
   }
   else {
-    console.warn("BS Year Range Invalid (Valid: 2076-2079) Given: ", year);
+    console.warn("BS Year Range Invalid (Valid: 2076-", END_BS_YEAR, ") Given: ", year);
     document.getElementById("parvas").innerHTML = "";
     return;
   }
