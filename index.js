@@ -630,5 +630,5 @@ function update_date_jumper(cal_mode) {
 
 console.info("* * *");
 console.info("This program is licensed under GNU General Public License v3.0");
-console.info("Brihat Calendar  Copyright (C) 2022  Brihat Ratna Bajracharya");
+console.info("Brihat Calendar  Copyright (C) 2020-", AD_TODAY_YEAR,"  Brihat Ratna Bajracharya");
 console.info("* * *");
