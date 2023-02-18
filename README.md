@@ -31,6 +31,9 @@
  - Receive suggestions for edit
  - National and International Event Details
  - Public Holiday Information (2076 - 2080 BS)
- - Sunrise Sunset Time (2019 - 2025 AD)
+ - Sunrise Sunset Time for Kathmandu (2019 - 2025 AD)
+ - Events and Holidays Box
  - Link to App
  - PWA Install Option
+
+ ###### Feedbacks and Suggestions are highly appreciated
