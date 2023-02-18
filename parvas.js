@@ -35,13 +35,15 @@ function add_parvas_list_bs(month, year) {
     return;
   }
   
-  let parvas = "<span style='text-decoration: underline;'>पर्वहरूः</span><br />";
+  let parvas = "<span style='text-decoration: underline;'>पर्व तथा बिदाहरूः</span><br />";
   parvas_event_req.open('GET', json_url, true);
   parvas_event_req.onload = function() {
     console.info("Creating BS Event Info Box...");
     let events = JSON.parse(this.response);
     for (var date = 1; date <= BS_CALENDAR_DATA[year][month-1]; date++) {
       let span_html = "";
+      let has_bs_event = false;
+      let parvas_span_id = year.toString() + "-" + month.toString().padStart(2,"0") + "-" + date.toString().padStart(2, "0") + "_events";
       if (events.data[month - 1][date - 1].lunar_event_one) {
         span_html += arabic_number_to_nepali(date) + " - " + events.data[month - 1][date - 1].lunar_event_one;
       }
@@ -65,10 +67,33 @@ function add_parvas_list_bs(month, year) {
       }
       if(span_html != "") {
         console.info("Found an event: ", span_html);
-        parvas += "<span id=" + year.toString() + "-" + month.toString().padStart(2,"0") + "-" + date.toString().padStart(2, "0") + "_events>" + span_html + "</span><br />";
+        parvas += "<span id=" + parvas_span_id + ">" + span_html;
+        has_bs_event = true;
       }
       else {
         span_html = "";
+      }
+
+      // this shows public holidays in parvas list
+      let public_holiday_key = parvas_span_id.slice(5, 10);
+      if(public_holidays[year].hasOwnProperty(public_holiday_key)) {
+        let holiday_name_np = public_holidays[year][public_holiday_key][3];
+        if(has_bs_event) {
+          if(!parvas.includes(holiday_name_np)) {
+            parvas += ", " + holiday_name_np + "</span><br />";
+          }
+          else {
+            parvas += "</span><br />";
+          }
+        }
+        else {
+          parvas += "<span id=" + parvas_span_id + ">" + arabic_number_to_nepali(date) + " - " + holiday_name_np + "</span><br />";
+        }
+      }
+      else {
+        if(has_bs_event) {
+          parvas += "</span><br />";
+        }
       }
     }
 
