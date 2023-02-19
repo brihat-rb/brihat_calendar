@@ -33,6 +33,7 @@ table {
 @media only screen and (max-width: 425px) {
     #parvas {
         width: 90%;
+        display: block !important;
     }
 }
 
