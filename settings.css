@@ -53,11 +53,11 @@
 }
 
 .sidebar {
-    width: 300px;
+    width: 325px;
     height: 100vh;
     position: fixed;
     top: 0;
-    left: -310px;
+    left: -330px;
     z-index: 999;
     background: rgb(255, 255, 255);
     color: #333;

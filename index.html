@@ -39,6 +39,9 @@
         <!-- added on 2022 OCT 24 to display event list under calendar (different for each calendar view) -->
         <div id="parvas" style="display: none;"></div>
 
+        <!-- added on 2023 FEB 19 to display public holiday list under AD and Solar Nepal Sambat Calendar -->
+        <div id="public_holiday_box" style=""></div>
+
         <div id="prev_today_next" class="form-inline">
           <button class="btn btn-outline-dark btn-sm" id="previous" onclick="previous()">&laquo; PREV </button>&nbsp;
           <button class="btn btn-info" id="default" onclick="go_to_today()">TODAY</button>&nbsp;
@@ -125,7 +128,8 @@
         <li>Appearance</li>
         <hr class="gear_hr" />
         <li><input type="checkbox" id="invert_color" onchange="toggle_invert_color()" autocomplete="off"/><label for="invert_color">&nbsp;Invert Color</label></li>
-        <li><input type="checkbox" id="check_pakshya_lang" onchange="toggle_pakshya_lang()" autocomplete="off"/><label for="check_pakshya_lang">&nbsp;Show Lunar Months in NEPALI</label></li>
+        <li><input type="checkbox" id="check_pakshya_lang" onchange="toggle_pakshya_lang()" autocomplete="off"/><label for="check_pakshya_lang">&nbsp;Show Pakshya in NEPALI</label></li>
+        <li><input type="checkbox" id="check_public_holiday_lang" onchange="toggle_public_holiday_lang()" autocomplete="off"/><label for="check_public_holiday_lang">&nbsp;Show Holiday Box in ENGLISH</label></li>
         <li style="margin-top: 10px; font-size: small;">Event Info Box Language Config</li>
         <hr class="gear_hr_2" />
         <li><input type="checkbox" id="check_lang_info_solarns" onchange="toggle_lang_info_solarns('solarns')" autocomplete="off"/><label for="check_lang_info_solarns">&nbsp;<span>Show Solar Nepal Sambat Events in ENGLISH</span></label></li>

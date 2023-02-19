@@ -17,7 +17,7 @@
  * 
 **/
 
-/* REQUIRES: index.js */
+/* REQUIRES: index.js, public_holidays.js, parvas.js */
 
 function previous() {
     // go to previous month
@@ -243,6 +243,7 @@ function showADCalendar(month, year) {
     main_title.innerText = AD_MONTHS[month - 1] + " " + year + " (Brihat Calendar)";
     add_author_info(AD_MONTHS[month - 1], year);
     add_parvas_list_ad(month, year);
+    add_public_holiday_box(month, year);
     update_date_jumper(CALENDAR_MODE);
     console.info("Generating Anno Domini Calendar... DONE!");
 }
@@ -413,6 +414,7 @@ function showBSCalendar(month, year) {
     main_title.innerText = BS_MONTHS_NEP[month - 1] + " " + arabic_number_to_nepali(year) + " (Brihat Calendar)";
     add_author_info(BS_MONTHS_NEP[month - 1], arabic_number_to_nepali(year));
     add_parvas_list_bs(month, year);
+    document.getElementById("public_holiday_box").style.display = "none";
     update_date_jumper(CALENDAR_MODE);
     console.info("Generating Bikram Sambat Calendar... DONE!");
 }
