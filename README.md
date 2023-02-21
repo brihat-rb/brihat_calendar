@@ -30,7 +30,8 @@
  - Date Details (Event Information)
  - Receive suggestions for edit
  - National and International Event Details
- - Public Holiday Information (2076 - 2080 BS)
+ - Events and Public Holiday Information (2076 - 2080 BS)
+ - Muhoortta Information (2079 BS)
  - Sunrise Sunset Time for Kathmandu (2019 - 2025 AD)
  - Events and Holidays Box
  - Link to App
