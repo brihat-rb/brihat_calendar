@@ -35,6 +35,7 @@ function toggle_all() {
     if (check_all) {
         document.getElementById('check_tithis').checked = true;
         document.getElementById('check_info_box').checked = true;
+        document.getElementById('check_muhoortta_box').checked = true;
         document.getElementById('check_converter_link').checked = true;
         document.getElementById('check_print_button').checked = true;
         document.getElementById('check_date_jumper').checked = true;
@@ -59,6 +60,18 @@ function toggle_info_box() {
         document.getElementById('parvas').style.display = "none";
     }
     console.info("Preferences (Show Event Info Box) set to: ", check_info_box.checked);
+}
+
+function toggle_muhoortta_box() {
+    let check_muhoortta_box = document.getElementById('check_muhoortta_box');
+
+    if(check_muhoortta_box.checked == true) {
+        document.getElementById('muhoortta_box').style.display = "flex";
+    }
+    else {
+        document.getElementById('muhoortta_box').style.display = "none";
+    }
+    console.info("Preferences (Show Muhoortta Box) set to: ", check_muhoortta_box.checked);
 }
 
 function toggle_date_jumper() {
@@ -220,6 +233,7 @@ function toggle_lang_info_solarns(type = "") {
 function trigger_all_event() {
     toggle_tithis();
     toggle_info_box();
+    toggle_muhoortta_box();
     toggle_converter_link();
     toggle_print_button();
     toggle_date_jumper();
@@ -233,7 +247,7 @@ function trigger_all_event() {
 }
 
 var config = [];
-const default_config = [true, false, false, false, true, false, false, false];
+const default_config = [true, false, false, false, true, false, false, false, false];
 
 
 // parvas info box lang: values (np, en): [BS, INTERNAT, SNS, NAT, OTHER]
@@ -249,6 +263,7 @@ function save_current_config() {
     config[5] = document.getElementById('invert_color').checked;
     config[6] = document.getElementById('check_pakshya_lang').checked;
     config[7] = document.getElementById('check_public_holiday_lang').checked;
+    config[8] = document.getElementById('check_muhoortta_box').checked;
     localStorage.setItem("config", JSON.stringify(config));
     
     parvas_info_box_lang[0] = 'np';
@@ -313,6 +328,7 @@ function load_config(def = false) {
         document.getElementById('invert_color').checked = config[5];
         document.getElementById('check_pakshya_lang').checked = config[6];
         document.getElementById('check_public_holiday_lang').checked = config[7];
+        document.getElementById('check_muhoortta_box').checked = config[8];
 
         document.getElementById("check_lang_info_solarns").checked = parvas_info_box_lang_session[2] == "en";
         document.getElementById("check_lang_info_national").checked = parvas_info_box_lang_session[3] == "en";

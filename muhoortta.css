@@ -1,0 +1,44 @@
+#muhoortta_box {
+    column-width: 300px;
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+    padding: 0px 2px 0px 2px;
+    border-style: dashed;
+    border-color:#dee2e6;
+    border-width: 3px;
+    line-height: 1.25;
+    justify-content: space-between;
+    display: flex;
+}
+  
+#muhoortta_box > div > span {
+    font-family: 'Laila', sans-serif;
+    display: inline-block;
+}
+
+table {
+    margin-bottom: 0 !important;
+}
+
+
+@media only screen and (max-width: 768px) {
+    #muhoortta_box {
+      width: 85%;
+    }
+}
+
+
+@media only screen and (max-width: 425px) {
+    #muhoortta_box {
+        width: 90%;
+    }
+}
+
+@media print {
+    #muhoortta_box {
+        display: block !important;
+    }
+    
+}

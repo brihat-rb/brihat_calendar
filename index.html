@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./index_details.css" />
   <link rel="stylesheet" href="./parvas.css" />
   <link rel="stylesheet" href="./settings.css" />
+  <link rel="stylesheet" href="./muhoortta.css" />
   <link rel="icon" href="logo.svg">
   <meta name="theme-color" content="#ffa500">
   <link rel="manifest" href="./manifest.json">
@@ -36,6 +37,9 @@
           <tbody align="center" id="calendar-body"></tbody>
         </table>
 
+        <!-- added on 2023 FEB 21 to display muhoorttas BS Calendar -->
+        <div id="muhoortta_box"></div>
+        
         <!-- added on 2022 OCT 24 to display event list under calendar (different for each calendar view) -->
         <div id="parvas" style="display: none;"></div>
 
@@ -121,6 +125,7 @@
         <li><input type="checkbox" id="check_all" onchange="toggle_all()" autocomplete="off"/><label for="check_all">&nbsp;Show All Components</label></li>
         <li><input type="checkbox" id="check_tithis" onchange="toggle_tithis()" checked autocomplete="off"/><label for="check_tithis">&nbsp;Show Tithis</label></li>
         <li><input type="checkbox" id="check_info_box" onchange="toggle_info_box()" autocomplete="off"/><label for="check_info_box">&nbsp;Show Event Info Box</label></li>
+        <li><input type="checkbox" id="check_muhoortta_box" onchange="toggle_muhoortta_box()" autocomplete="off"/><label for="check_muhoortta_box">&nbsp;Show Muhoortta Box</label></li>
         <li><input type="checkbox" id="check_converter_link" onchange="toggle_converter_link()" autocomplete="off"/><label for="check_converter_link">&nbsp;Show Date Converter Link</label></li>
         <li><input type="checkbox" id="check_print_button" onchange="toggle_print_button()" autocomplete="off"/><label for="check_print_button">&nbsp;Show Print Button</label></li>
         <li><input type="checkbox" id="check_date_jumper" onchange="toggle_date_jumper()" checked autocomplete="off"/><label for="check_date_jumper">&nbsp;Show Date Jumper</label></li>
@@ -154,6 +159,7 @@
     <script src="NS_BS.js"></script>
     <script src="AD_BS.js"></script>
     <script src="public_holidays.js"></script>
+    <script src="muhoortta.js"></script>
     <script src="parvas.js"></script>
     <script src="index.js"></script>
     <script src="index_cal_conv.js"></script>

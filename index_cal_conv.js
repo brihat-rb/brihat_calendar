@@ -413,6 +413,7 @@ function showBSCalendar(month, year) {
     show_public_holidays(year, year, month, month);
     main_title.innerText = BS_MONTHS_NEP[month - 1] + " " + arabic_number_to_nepali(year) + " (Brihat Calendar)";
     add_author_info(BS_MONTHS_NEP[month - 1], arabic_number_to_nepali(year));
+    add_muhoortta_box(month, year);
     add_parvas_list_bs(month, year);
     document.getElementById("public_holiday_box").style.display = "none";
     update_date_jumper(CALENDAR_MODE);
