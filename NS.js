@@ -80,6 +80,21 @@ function arabic_number_to_nepali(number){
     return nepali_number;
 }
 
+function arabic_numbertext_to_nepali(number){
+  // converts given number to devanagari number
+  number = number.toString();
+  let nepali_number_text = "";
+  for(let i = 0; i < number.length; i++) {
+      if(["1","2","3","4","5","6","7","8","9","0"].includes(number[i])){
+        nepali_number_text += NEPALI_DIGITS[parseInt(number.charAt(i))];
+      }
+      else {
+        nepali_number_text += number.charAt(i);
+      }
+  }
+  return nepali_number_text;
+}
+
 function is_leap_year(year) {
     // checks whether given AD year is leap year or not
     return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0
