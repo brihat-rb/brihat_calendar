@@ -242,6 +242,7 @@ function showADCalendar(month, year) {
     show_public_holidays(bs_year_start, bs_year_end, bs_start_date_list_from_ns[1], bs_end_date_list_from_ns[1]);
     main_title.innerText = AD_MONTHS[month - 1] + " " + year + " (Brihat Calendar)";
     add_author_info(AD_MONTHS[month - 1], year);
+    add_muhoortta_box(month, year);
     add_parvas_list_ad(month, year);
     add_public_holiday_box(month, year);
     update_date_jumper(CALENDAR_MODE);

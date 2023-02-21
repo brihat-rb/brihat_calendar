@@ -171,6 +171,7 @@ function add_public_holiday_box(month, year) {
   }
   let public_holiday_box = document.getElementById("public_holiday_box");
   let last_date = CALENDAR_MODE ? 32 : get_last_date_ns(year, month);
+  let has_public_holiday = false;
 
   for (var date = 1; date < last_date; date++) {
     let bs_list = "";
@@ -191,16 +192,19 @@ function add_public_holiday_box(month, year) {
 
     let public_holiday_key = bs_month.toString().padStart(2, '0') + "-" + bs_date.toString().padStart(2, '0')
     let public_holiday_span_id = bs_year.toString() + "-" + public_holiday_key + "_PH";
-    if(public_holidays[bs_year].hasOwnProperty(public_holiday_key)) {
-      let holiday_name = public_holidays[bs_year][public_holiday_key][3];
-      if(public_holiday_lang_en) {
-        holiday_name = public_holidays[bs_year][public_holiday_key][0];
+    if(public_holidays.hasOwnProperty(bs_year)) {
+      if(public_holidays[bs_year].hasOwnProperty(public_holiday_key)) {
+        let holiday_name = public_holidays[bs_year][public_holiday_key][3];
+        if(public_holiday_lang_en) {
+          holiday_name = public_holidays[bs_year][public_holiday_key][0];
+        }
+        public_holiday_list_html += "<span id=" + public_holiday_span_id + ">";
+        let public_holiday_list_span = CALENDAR_MODE ? date : arabic_number_to_nepali(date);
+        public_holiday_list_span += " - " + holiday_name;
+        public_holiday_list_html += public_holiday_list_span + "</span><br />";
+        console.info("Added to list: ", public_holiday_list_span);
+        has_public_holiday = true;
       }
-      public_holiday_list_html += "<span id=" + public_holiday_span_id + ">";
-      let public_holiday_list_span = CALENDAR_MODE ? date : arabic_number_to_nepali(date);
-      public_holiday_list_span += " - " + holiday_name;
-      public_holiday_list_html += public_holiday_list_span + "</span><br />";
-      console.info("Added to list: ", public_holiday_list_span);
     }
   }
 
@@ -221,5 +225,8 @@ function add_public_holiday_box(month, year) {
     }
   }
   public_holiday_box.style.display = "block";
+  if(!has_public_holiday) {
+    public_holiday_box.style.display = "none";
+  }
   console.info("Creating Public Holiday Info Box... DONE!");
 }

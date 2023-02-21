@@ -24,6 +24,7 @@ let events = [];
 function add_muhoortta_box(month, year) {
   if(CALENDAR_MODE != 2) {
     console.warn("Not implemented for this calendar mode.");
+    document.getElementById("muhoortta_box").style.display = "none";
     return;
   }
   var muhoortta_event_req = new XMLHttpRequest();
@@ -60,6 +61,9 @@ function add_muhoortta_box(month, year) {
     }
 
     document.getElementById("muhoortta_box").innerHTML = muhoortta;
+    if(muhoortta != "") {
+      document.getElementById("muhoortta_box").style.display = "flex";
+    }
     console.info("Creating BS Muhoortta Info Box... DONE!");
   }
   
