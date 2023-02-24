@@ -11,7 +11,7 @@
 }
 
 #modal_body {
-  background: url('watermark.svg');
+  background: url('../assets/watermark.svg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 80%;
@@ -154,14 +154,14 @@ input[type="submit"][disabled]:hover {
 }
 
 .qr {
-  background: url('brihat_calendar_url_qr.svg') !important;
+  background: url('../assets/brihat_calendar_url_qr.svg') !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: auto 100% !important;
 }
 
 .qr_fallback {
-  background: url('watermark.svg') 20% center, url('brihat_calendar_url_qr.svg') 80% center !important;
+  background: url('../assets/watermark.svg') 20% center, url('../assets/brihat_calendar_url_qr.svg') 80% center !important;
   background-repeat: no-repeat !important;
   background-size: auto 100% !important;
 }
@@ -226,7 +226,7 @@ input[type="submit"][disabled]:hover {
   }
 
   .card-header {
-    background: url('static_logo.svg') 5% center, url('brihat_calendar_url_qr.svg') 95% center !important;
+    background: url('../assets/static_logo.svg') 5% center, url('../assets/brihat_calendar_url_qr.svg') 95% center !important;
     background-repeat: no-repeat !important;
     background-size: auto 90% !important;
   }

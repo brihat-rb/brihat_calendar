@@ -7,9 +7,9 @@
   "background_color": "#005A00",
   "theme_color": "#ffa500",
   "orientation": "any",
-  "description": "A Simple Solar Nepal Sambat - Bikram Sambat - Anno Domini Calendar with tithis, national, international events, sunrise and sunset , and holiday information",
+  "description": "A Simple Solar Nepal Sambat - Bikram Sambat - Anno Domini Calendar with tithis, muhoorttas, national, international events, sunrise and sunset, and public holiday information",
   "icons": [{
-    "src": "./brihat_calendar.png",
+    "src": "./assets/brihat_calendar.png",
     "type": "image/png",
     "sizes": "512x512 256x256 192x192 128x128 64x64 32x32"
   }]

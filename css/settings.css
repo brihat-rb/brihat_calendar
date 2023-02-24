@@ -33,7 +33,7 @@
 }
 
 #preferences_list {
-    background: url('watermark.svg');
+    background: url('../assets/watermark.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: auto 60%;
