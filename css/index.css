@@ -49,7 +49,7 @@ table td:hover {
 .table td {
   padding: 7px;
   transition: 0.2s;
-  background: url('../assets/watermark.svg');
+  background: url('../assets/watermark2.svg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: auto 80%;
@@ -190,7 +190,7 @@ select {
   }
 
   #calendar {
-    background: url("../assets/watermark.svg");
+    background: url("../assets/watermark2.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: auto 50%;
