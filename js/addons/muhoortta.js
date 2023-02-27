@@ -20,6 +20,10 @@
 /* REQUIRES: NS.js */
 
 let events = [];
+let show_muhoortta_box_session = false;
+if(localStorage.config != null) {
+  show_muhoortta_box_session = JSON.parse(localStorage.config)[8];
+}
 
 function add_muhoortta_box(month, year) {
   if(CALENDAR_MODE != 2) {
@@ -62,7 +66,12 @@ function add_muhoortta_box(month, year) {
 
     document.getElementById("muhoortta_box").innerHTML = muhoortta;
     if(muhoortta != "") {
-      document.getElementById("muhoortta_box").style.display = "flex";
+      if(show_muhoortta_box_session) {
+        document.getElementById("muhoortta_box").style.display = "flex";
+      }
+    }
+    else {
+      document.getElementById("muhoortta_box").style.display = "none";
     }
     console.info("Creating BS Muhoortta Info Box... DONE!");
   }

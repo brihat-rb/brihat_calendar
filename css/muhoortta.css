@@ -35,10 +35,3 @@ table {
         width: 90%;
     }
 }
-
-@media print {
-    #muhoortta_box {
-        display: block !important;
-    }
-    
-}
