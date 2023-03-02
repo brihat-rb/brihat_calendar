@@ -67,9 +67,11 @@ function toggle_muhoortta_box() {
 
     if(check_muhoortta_box.checked == true) {
         document.getElementById('muhoortta_box').style.display = "flex";
+        show_muhoortta_box_session = true;
     }
     else {
         document.getElementById('muhoortta_box').style.display = "none";
+        show_muhoortta_box_session = false;
     }
     console.info("Preferences (Show Muhoortta Box) set to: ", check_muhoortta_box.checked);
 }

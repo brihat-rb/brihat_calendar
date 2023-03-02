@@ -25,7 +25,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Laila&display=swap" rel="stylesheet">
 </head>
   
-<body onbeforeunload="return on_unload()">
+<body onbeforeunload="return on_unload()" onload="loading_anim();">
+  <div id="loading">
+    <img id="loading_anim" src="./assets/loading_anim.svg" alt="Generating Calendar ..." />
+    <span id="loading_title">Brihat Calendar</span>
+    <noscript>Please enable JavaScript and reload</noscript>
+  </div>
   <main>
     <div class="container-md" align="center">
       <div class="card">
@@ -195,6 +200,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.1/sweetalert.min.js"></script>
 
+    <script>
+      function loading_anim() {
+        document.getElementById('loading').style.display = "none";
+      }
+    </script>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-99TBHKPHDP"></script>
     <script>
