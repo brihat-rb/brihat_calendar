@@ -55,6 +55,40 @@ function next() {
     }
 }
 
+function up() {
+  // go to previous year
+  currentYear -= 1;
+  if (CALENDAR_MODE == 0) {
+    showCalendar(currentMonth, currentYear);
+  }
+  else if (CALENDAR_MODE == 1) {
+    showADCalendar(currentMonth, currentYear);
+  }
+  else if (CALENDAR_MODE == 2) {
+    showBSCalendar(currentMonth, currentYear);
+  }
+  else {
+    console.warn("error in calendar mode");
+  }
+}
+
+function down() {
+  // go to next year
+  currentYear += 1;
+  if (CALENDAR_MODE == 0) {
+    showCalendar(currentMonth, currentYear);
+  }
+  else if (CALENDAR_MODE == 1) {
+    showADCalendar(currentMonth, currentYear);
+  }
+  else if (CALENDAR_MODE == 2) {
+    showBSCalendar(currentMonth, currentYear);
+  }
+  else {
+    console.warn("error in calendar mode");
+  }
+}
+
 function jump() {
     // go to specific month of specific year
     currentYear = parseInt(select_year.value);
