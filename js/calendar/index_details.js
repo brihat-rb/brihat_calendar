@@ -196,7 +196,10 @@ function tdclick(id) {
         default_content += "<br />";
       }
       default_content +="<div class='national_event event_type'>national event</div>";
-      default_content +="<div class='national_event'>" + nevents.data[nat_events_key][1] + "</div>";
+      nevents_list = nevents.data[nat_events_key][1].split("/");
+      nevents_list.forEach(element => {
+        default_content +="<div class='national_event'>" + element + "</div>";
+      });
       default_events = true;
       console.info("National Event Displayed!");
     }
@@ -207,8 +210,14 @@ function tdclick(id) {
         default_content += "<br />";
       }
       default_content +="<div class='international_event event_type'>international event</div>";
-      default_content +="<div class='international_event'>" + ievents.data[int_events_key][1] + "</div>";
-      default_content +="<div id='international_event_eng'>( " + ievents.data[int_events_key][0] + " )</div>";
+      ievents_list = ievents.data[int_events_key][1].split("/");
+      ievents_list_eng = ievents.data[int_events_key][0].split("/");
+      ievents_list.forEach(element => {
+        info_content +="<div class='international_event'>" + element + "</div>";
+      });
+      ievents_list_eng.forEach(element => {
+        info_content +="<div class='international_event'>( " + element + " )</div>";
+      });
       default_events = true;
       console.info("International Event Displayed!");
     }
@@ -379,7 +388,10 @@ function tdclick(id) {
         info_content += "<br />";
       }
       info_content +="<div class='national_event event_type'>national event</div>";
-      info_content +="<div class='national_event'>" + nevents.data[nat_events_key][1] + "</div>";
+      nevents_list = nevents.data[nat_events_key][1].split("/");
+      nevents_list.forEach(element => {
+        info_content +="<div class='national_event'>" + element + "</div>";
+      });
       has_events = true;
       console.info("National Event Displayed!");
     }
@@ -390,8 +402,14 @@ function tdclick(id) {
         info_content += "<br />";
       }
       info_content +="<div class='international_event event_type'>international event</div>";
-      info_content +="<div class='international_event'>" + ievents.data[int_events_key][1] + "</div>";
-      info_content +="<div id='international_event_eng'>( " + ievents.data[int_events_key][0] + " )</div>";
+      ievents_list = ievents.data[int_events_key][1].split("/");
+      ievents_list_eng = ievents.data[int_events_key][0].split("/");
+      ievents_list.forEach(element => {
+        info_content +="<div class='international_event'>" + element + "</div>";
+      });
+      ievents_list_eng.forEach(element => {
+        info_content +="<div class='international_event'>" + element + "</div>";
+      });
       has_events = true;
       console.info("International Event Displayed!");
     }

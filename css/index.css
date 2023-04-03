@@ -120,6 +120,11 @@ h6 {
   margin-bottom: 4px;
 }
 
+select > option {
+  font-family: 'Laila';
+  font-weight: bold;
+}
+
 #footer {
   color: darkblue;
   font-size: 12px;
