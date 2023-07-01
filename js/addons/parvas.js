@@ -50,7 +50,7 @@ function add_parvas_list_bs(month, year) {
     return;
   }
   
-  let parvas = "<span style='text-decoration: underline;'>पर्व तथा बिदाहरूः</span><br />";
+  let parvas = "<span style='text-decoration: underline;'>पर्व, दिवस तथा बिदाहरूः</span><br />";
   parvas_event_req.open('GET', json_url, true);
   parvas_event_req.onload = function() {
     console.info("Creating BS Event Info Box...");
