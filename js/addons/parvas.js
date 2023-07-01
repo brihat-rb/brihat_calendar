@@ -94,24 +94,24 @@ function add_parvas_list_bs(month, year) {
       if (nat_events.data[nat_parva_key]) {
         console.info("Found a national event:", arabic_number_to_nepali(date), " - ", nat_events.data[nat_parva_key][1]);
         if(has_bs_event) {
-          if(parvas_info_box_lang_session[3] == "en"){
-            if(!parvas.includes(nat_events.data[nat_parva_key][0])) {
-              parvas += ", " + nat_events.data[nat_parva_key][0];
-            }
-          }
-          else {
+          // if(parvas_info_box_lang_session[3] == "en"){
+          //   if(!parvas.includes(nat_events.data[nat_parva_key][0])) {
+          //     parvas += ", " + nat_events.data[nat_parva_key][0];
+          //   }
+          // }
+          // else {
             if(!parvas.includes(nat_events.data[nat_parva_key][1])) {
               parvas += ", " + nat_events.data[nat_parva_key][1];
             }
-          }
+          // }
         }
         else {
-          if (parvas_info_box_lang_session[3] == "en"){
-            parvas += "<span id=" + parvas_span_id + ">" + arabic_number_to_nepali(date) + " - " + nat_events.data[nat_parva_key][0];
-          }
-          else {
+          // if (parvas_info_box_lang_session[3] == "en"){
+          //   parvas += "<span id=" + parvas_span_id + ">" + arabic_number_to_nepali(date) + " - " + nat_events.data[nat_parva_key][0];
+          // }
+          // else {
             parvas += "<span id=" + parvas_span_id + ">" + arabic_number_to_nepali(date) + " - " + nat_events.data[nat_parva_key][1];
-          }
+          // }
           has_bs_event = true;
         }
       }
