@@ -25,6 +25,21 @@ if(localStorage.info_box_lang != null) {
 }
 
 function add_parvas_list_bs(month, year) {
+  var nat_parvas_event_req = new XMLHttpRequest();
+  var nat_event_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/national_events.json';
+  var nat_events = JSON.parse("{}");
+
+  nat_parvas_event_req.open('GET', nat_event_url, false);
+  nat_parvas_event_req.onload = function() {
+    nat_events = JSON.parse(this.response);
+  }
+
+  nat_parvas_event_req.onerror = function() {
+    content.innerHTML = "Error Occured";
+  }
+
+  nat_parvas_event_req.send();
+  
   var parvas_event_req = new XMLHttpRequest();
   if (year >= 2076 && year <= END_BS_YEAR) {
     json_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/' + year + '_detailed.json';
@@ -74,10 +89,38 @@ function add_parvas_list_bs(month, year) {
         span_html = "";
       }
 
+      // this includes national events in parvas list -- added 1 JULY 2023
+      let nat_parva_key = parvas_span_id.slice(5, 10);
+      if (nat_events.data[nat_parva_key]) {
+        console.info("Found a national event:", arabic_number_to_nepali(date), " - ", nat_events.data[nat_parva_key][1]);
+        if(has_bs_event) {
+          if(parvas_info_box_lang_session[3] == "en"){
+            if(!parvas.includes(nat_events.data[nat_parva_key][0])) {
+              parvas += ", " + nat_events.data[nat_parva_key][0];
+            }
+          }
+          else {
+            if(!parvas.includes(nat_events.data[nat_parva_key][1])) {
+              parvas += ", " + nat_events.data[nat_parva_key][1];
+            }
+          }
+        }
+        else {
+          if (parvas_info_box_lang_session[3] == "en"){
+            parvas += "<span id=" + parvas_span_id + ">" + arabic_number_to_nepali(date) + " - " + nat_events.data[nat_parva_key][0];
+          }
+          else {
+            parvas += "<span id=" + parvas_span_id + ">" + arabic_number_to_nepali(date) + " - " + nat_events.data[nat_parva_key][1];
+          }
+          has_bs_event = true;
+        }
+      }
+
       // this shows public holidays in parvas list
       let public_holiday_key = parvas_span_id.slice(5, 10);
       if(public_holidays[year].hasOwnProperty(public_holiday_key)) {
         let holiday_name_np = public_holidays[year][public_holiday_key][3];
+        console.info("Found a", public_holidays[year][public_holiday_key][1] + " holiday:", arabic_number_to_nepali(date), " - ", holiday_name_np);
         if(has_bs_event) {
           if(!parvas.includes(holiday_name_np)) {
             parvas += ", " + holiday_name_np + "</span><br />";
