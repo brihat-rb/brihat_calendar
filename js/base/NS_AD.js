@@ -38,6 +38,7 @@ const AD_MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug",
 const NEPALI_DIGITS = ['०','१','२','३','४','५','६','७','८','९'];
 
 const NEPALI_DAYS = ["आइतबार", "सोमबार", "मंगलबार", "बुधबार", "बिहिबार", "शुक्रबार", "शनिबार"];
+const NEPALI_DAYS_ABBR = ["आ.", "सो.", "मं.", "बु.", "बि.", "शु.", "श."];
 const ENGLISH_DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const ENGLISH_DAYS_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
