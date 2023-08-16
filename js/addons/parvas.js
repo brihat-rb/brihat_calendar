@@ -17,7 +17,7 @@
  * 
 **/
 
-/* REQUIRES: NS.js, NS_BS.js, NS_AD.js */
+/* REQUIRES: NS.js, NS_BS.js, NS_AD.js, utils.js */
 
 let parvas_info_box_lang_session = ["np", "en", "np", "np", "en"];
 if(localStorage.info_box_lang != null) {
@@ -155,6 +155,7 @@ function add_parvas_list_bs(month, year) {
         }
       }
     }
+    highlight_event_in_calendar();
     console.info("Creating BS Event Info Box... DONE!");
   }
   
@@ -211,6 +212,7 @@ function add_parvas_list_ad(month, year) {
         }
       }
     }
+    highlight_event_in_calendar();
     console.info("Creating AD Event Info Box... DONE!");
   }
 
@@ -375,6 +377,7 @@ function add_parvas_list_ns(month, year) {
         }
       }
     }
+    highlight_event_in_calendar();
     console.info("Creating NS Event Info Box... DONE!");
   }
 
