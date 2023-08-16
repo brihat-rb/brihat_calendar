@@ -8,7 +8,7 @@ function highlight_event_in_calendar() {
         var corresponding_td = document.getElementById(event.id.slice(0, 10)).parentNode.parentNode;
         event.addEventListener("mouseover", (e) => {
             event.style = "color: darkgoldenrod; font-weight: bolder;";
-            corresponding_td.style = "background-color: gold; border-color: black;";
+            corresponding_td.style = "background-color: gold !important; border-color: black;";
         });
 
         event.addEventListener("mouseout", (e) => {
@@ -24,7 +24,7 @@ function highlight_event_in_calendar() {
         setTimeout(() => {
             parvas_span_events.forEach(event => {
                 var corresponding_td = document.getElementById(event.id.slice(0, 10)).parentNode.parentNode;
-                corresponding_td.style = "background-color: gold; border-color: black;";
+                corresponding_td.style = "background-color: gold !important; border-color: black;";
             });
 
         }, 250);
