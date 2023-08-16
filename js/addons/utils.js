@@ -36,3 +36,17 @@ function highlight_event_in_calendar() {
         });
     });
 }
+
+function init_anim() {
+    var parvas_dom = document.getElementById("parvas").childNodes;
+    var parvas_span_events = [].filter.call(parvas_dom, function(el) {
+        return el.id.includes('events');
+    });
+
+    parvas_span_events.forEach(function (event, index) {
+        setTimeout(() => {
+            event.dispatchEvent(new Event("mouseover"));
+            event.dispatchEvent(new Event("mouseout"));
+        }, index * 75);
+    });
+}
