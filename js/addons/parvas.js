@@ -50,7 +50,7 @@ function add_parvas_list_bs(month, year) {
     return;
   }
   
-  let parvas = "<span style='text-decoration: underline;'>पर्व, दिवस तथा बिदाहरूः</span><br />";
+  let parvas = "<span style='text-decoration: underline;' onclick='highlight_events();' title='सबै पर्व फोकस गर्न क्लिक गर्नुहोस्'>पर्व, दिवस तथा बिदाहरूः</span><br />";
   parvas_event_req.open('GET', json_url, true);
   parvas_event_req.onload = function() {
     console.info("Creating BS Event Info Box...");
@@ -156,6 +156,7 @@ function add_parvas_list_bs(month, year) {
       }
     }
     highlight_event_in_calendar();
+    init_anim();
     console.info("Creating BS Event Info Box... DONE!");
   }
   
@@ -170,7 +171,7 @@ function add_parvas_list_ad(month, year) {
   var int_parvas_event_req = new XMLHttpRequest();
   var int_event_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/international_events.json';
   
-  let parvas = "<span style='text-decoration: underline;'>International Events:</span><br />";
+  let parvas = "<span style='text-decoration: underline;' onclick='highlight_events();' title='Click to Focus all Events'>International Events:</span><br />";
   int_parvas_event_req.open('GET', int_event_url, true);
   int_parvas_event_req.onload = function() {
     console.info("Creating AD Event Info Box...");
@@ -213,6 +214,7 @@ function add_parvas_list_ad(month, year) {
       }
     }
     highlight_event_in_calendar();
+    init_anim();
     console.info("Creating AD Event Info Box... DONE!");
   }
 
@@ -237,7 +239,7 @@ function add_parvas_list_ns(month, year) {
   document.getElementById("parvas").innerHTML = "";
   
   let has_parvasns = false;
-  let parvasns = "<span style='text-decoration: underline;'>Solar Nepal Sambat Events:</span><br />";
+  let parvasns = "";
   
   sns_parvas_event_req.open('GET', sns_event_url, true);
   sns_parvas_event_req.onload = function() {
@@ -260,14 +262,14 @@ function add_parvas_list_ns(month, year) {
         let bs_year = bs_list[0];
         let bs_month = bs_list[1];
         let bs_date = bs_list[2];
-        parvasns += "<span id=" + bs_year.toString() + "-" + bs_month.toString().padStart(2,"0") + "-" + bs_date.toString().padStart(2, "0") + "_snsevents>" + span_html + "</span><br />";
+        parvasns += "<span id=" + bs_year.toString() + "-" + bs_month.toString().padStart(2,"0") + "-" + bs_date.toString().padStart(2, "0") + "_events>" + span_html + "</span><br />";
         has_parvasns = true;
         console.info("Found an event: ", span_html);
       }  
     }
 
     if(has_parvasns) {
-      document.getElementById("parvas").innerHTML += parvasns + "<br />";
+      document.getElementById("parvas").innerHTML += "<span style='text-decoration: underline;' onclick='highlight_events();' title='Click to Focus all Events'>Solar Nepal Sambat Events:</span><br />" + parvasns + "<br />";
       // document.getElementById('parvas').style.display = "block";
     }
   }
@@ -279,7 +281,7 @@ function add_parvas_list_ns(month, year) {
   sns_parvas_event_req.send();
 
   let has_parvanat = false;
-  let parvanat = "<span style='text-decoration: underline;'>National Events:</span><br />";
+  let parvanat = "";
 
   nat_parvas_event_req.open('GET', nat_event_url, true);
   nat_parvas_event_req.onload = function() {
@@ -305,13 +307,13 @@ function add_parvas_list_ns(month, year) {
       }
       if(span_html != "") {
         has_parvanat = true;
-        parvanat += "<span id=" + bs_year.toString() + "-" + bs_month.toString().padStart(2,"0") + "-" + bs_date.toString().padStart(2, "0") + "_natevents>" + span_html + "</span><br />";
+        parvanat += "<span id=" + bs_year.toString() + "-" + bs_month.toString().padStart(2,"0") + "-" + bs_date.toString().padStart(2, "0") + "_events>" + span_html + "</span><br />";
         console.info("Found an event: ", span_html);
       }  
     }
 
     if(has_parvanat) {
-      document.getElementById("parvas").innerHTML += parvanat + "<br />";
+      document.getElementById("parvas").innerHTML += "<span style='text-decoration: underline;' onclick='highlight_events();' title='Click to Focus all Events'>National Events:</span><br />" + parvanat + "<br />";
       // document.getElementById('parvas').style.display = "block";
     }
   }
@@ -323,7 +325,7 @@ function add_parvas_list_ns(month, year) {
   nat_parvas_event_req.send();
 
   let has_parvaother = false;
-  let parvaother = "<span style='text-decoration: underline;'>Other Events:</span><br />";
+  let parvaother = "";
 
   other_parvas_event_req.open('GET', other_event_url, true);
   other_parvas_event_req.onload = function() {
@@ -353,13 +355,13 @@ function add_parvas_list_ns(month, year) {
         let bs_year = bs_list[0];
         let bs_month = bs_list[1];
         let bs_date = bs_list[2];
-        parvaother += "<span id=" + bs_year.toString() + "-" + bs_month.toString().padStart(2,"0") + "-" + bs_date.toString().padStart(2, "0") + "_otherevents>" + span_html + "</span><br />";
+        parvaother += "<span id=" + bs_year.toString() + "-" + bs_month.toString().padStart(2,"0") + "-" + bs_date.toString().padStart(2, "0") + "_events>" + span_html + "</span><br />";
         console.info("Found an event: ", span_html);
       }  
     }
 
     if(has_parvaother) {
-      document.getElementById("parvas").innerHTML += parvaother;
+      document.getElementById("parvas").innerHTML += "<span style='text-decoration: underline;' onclick='highlight_events();' title='Click to Focus all Events'>Other Events:</span><br />" + parvaother + "<br />";
       // document.getElementById('parvas').style.display = "block";
     }
 
@@ -386,4 +388,5 @@ function add_parvas_list_ns(month, year) {
   }
 
   other_parvas_event_req.send();
+  init_anim();
 }

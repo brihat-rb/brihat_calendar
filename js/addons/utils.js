@@ -20,15 +20,14 @@ function highlight_event_in_calendar() {
     });
 
     var parvas_title = parvas_dom[0];
-    parvas_title.addEventListener("mouseover", (e) => {
-        setTimeout(() => {
-            parvas_span_events.forEach(event => {
-                var corresponding_td = document.getElementById(event.id.slice(0, 10)).parentNode.parentNode;
-                corresponding_td.style = "background-color: gold !important; border-color: black;";
-            });
-
-        }, 250);
-    });
+    // parvas_title.addEventListener("mouseover", (e) => {
+    //     setTimeout(() => {
+    //         parvas_span_events.forEach(event => {
+    //             var corresponding_td = document.getElementById(event.id.slice(0, 10)).parentNode.parentNode;
+    //             corresponding_td.style = "background-color: gold !important; border-color: black;";
+    //         });
+    //     }, 250);
+    // });
     parvas_title.addEventListener("mouseout", (e) => {
         parvas_span_events.forEach(event => {
             var corresponding_td = document.getElementById(event.id.slice(0, 10)).parentNode.parentNode;
@@ -48,5 +47,21 @@ function init_anim() {
             event.dispatchEvent(new Event("mouseover"));
             event.dispatchEvent(new Event("mouseout"));
         }, index * 75);
+    });
+}
+
+function highlight_events() {
+    var parvas_dom = document.getElementById("parvas").childNodes;
+    var parvas_span_events = [].filter.call(parvas_dom, function(el) {
+        return el.id.includes('events');
+    });
+
+    parvas_span_events.forEach(function (event, index) {
+        setTimeout(() => {
+            event.style = "color: darkgoldenrod; font-weight: none;";
+            event.dispatchEvent(new Event("mouseover"));
+            event.style = "color: none; font-weight: none;";
+            // event.dispatchEvent(new Event("mouseout"));
+        }, index * 100);
     });
 }
