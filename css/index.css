@@ -65,7 +65,7 @@ table td:hover {
   /* background-color: rgba(0,0,0,.075); */
   background-color: lightgray;
   background-size:  100% 100%;
-  transform: scale(1.4545,1.34);
+  /* transform: scale(1.4545,1.34); */
   transform-origin: center;
   border-color: #000;
   cursor: pointer;
