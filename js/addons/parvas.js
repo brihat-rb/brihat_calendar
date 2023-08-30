@@ -146,6 +146,7 @@ function add_parvas_list_bs(month, year) {
     const parvas_list = document.getElementById('parvas').getElementsByTagName('span');
     for(var single_parva of parvas_list) {
       var parva_holiday_id = single_parva.id.slice(5, 10);
+      single_parva.innerHTML = single_parva.innerHTML.replaceAll(" /", ",");
       if(public_holidays[year].hasOwnProperty(parva_holiday_id)) {
         if(public_holidays[year][parva_holiday_id][1] == 'national') {
           single_parva.classList.add('national_holiday');
@@ -203,6 +204,7 @@ function add_parvas_list_ad(month, year) {
     for(var single_parva of parvas_list) {
       var parva_holiday_id = single_parva.id.slice(5, 10);
       let bs_year = single_parva.id.slice(0, 4);
+      single_parva.innerHTML = single_parva.innerHTML.replaceAll(" /", ",");
 
       if(public_holidays[bs_year] && public_holidays[bs_year].hasOwnProperty(parva_holiday_id)){
         if(public_holidays[bs_year][parva_holiday_id][1] == 'national') {
@@ -369,6 +371,7 @@ function add_parvas_list_ns(month, year) {
     for(var single_parva of parvas_list) {
       var parva_holiday_id = single_parva.id.slice(5, 10);
       let bs_year = single_parva.id.slice(0, 4);
+      single_parva.innerHTML = single_parva.innerHTML.replaceAll(" /", ",");
 
       if(public_holidays[bs_year] && public_holidays[bs_year].hasOwnProperty(parva_holiday_id)) {
         if(public_holidays[bs_year][parva_holiday_id][1] == 'national') {

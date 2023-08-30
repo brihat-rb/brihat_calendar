@@ -359,24 +359,24 @@ function tdclick(id) {
       info_content += "<br /><br />";
     }
     if (events.data[bs_month - 1][bs_date - 1].lunar_event_one) {
-      info_content += '<div id="info1">' + events.data[bs_month - 1][bs_date - 1].lunar_event_one + '</div>';
+      info_content += '<div id="info1">' + events.data[bs_month - 1][bs_date - 1].lunar_event_one.replaceAll(" / ", "<br />") + '</div>';
       has_events = true;
       console.info("Event One Displayed!");
     }
     if (events.data[bs_month - 1][bs_date - 1].lunar_event_two) {
-      info_content += '<div id="info2">' + events.data[bs_month - 1][bs_date - 1].lunar_event_two + '</div>';
+      info_content += '<div id="info2">' + events.data[bs_month - 1][bs_date - 1].lunar_event_two.replaceAll(" / ", "<br />") + '</div>';
       has_events = true;
       console.info("Event Two Displayed!");
     }
     if (events.data[bs_month - 1][bs_date - 1].lunar_event_three) {
-      info_content += '<div id="info3">' + events.data[bs_month - 1][bs_date - 1].lunar_event_three + '</div>';
+      info_content += '<div id="info3">' + events.data[bs_month - 1][bs_date - 1].lunar_event_three.replaceAll(" / ", "<br />") + '</div>';
       has_events = true;
       console.info("Event Three Displayed!");
     }
 
     var public_holidays_information = add_public_holiday_info(id, has_events);
     if (public_holidays_information) {
-      info_content += public_holidays_information
+      info_content += public_holidays_information.replaceAll(" / ", "<br />");
       has_events = true;
       console.info("Public Holiday!!");
     }
