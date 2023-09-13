@@ -155,6 +155,11 @@ function add_parvas_list_bs(month, year) {
           single_parva.classList.add('specific_holiday');
         }
       }
+      bs_date_today = bs_today_year + "-" + bs_today_month.padStart(2, "0") + "-" + bs_today_date.padStart(2, "0");
+      single_parva_date = single_parva.id.slice(0, 10);
+      if( single_parva_date == bs_date_today) {
+        single_parva.classList.add('text-primary');
+      }
     }
     highlight_event_in_calendar();
     init_anim();
@@ -213,6 +218,11 @@ function add_parvas_list_ad(month, year) {
         else if(public_holidays[bs_year][parva_holiday_id][1] == 'specific') {
           single_parva.classList.add('specific_holiday');
         }
+      }
+      bs_date_today = bs_today_year + "-" + bs_today_month.padStart(2, "0") + "-" + bs_today_date.padStart(2, "0");
+      single_parva_date = single_parva.id.slice(0, 10);
+      if( single_parva_date == bs_date_today) {
+        single_parva.classList.add('text-primary');
       }
     }
     highlight_event_in_calendar();
@@ -380,6 +390,11 @@ function add_parvas_list_ns(month, year) {
         else if(public_holidays[bs_year][parva_holiday_id][1] == 'specific') {
           single_parva.classList.add('specific_holiday');
         }
+      }
+      bs_date_today = bs_today_year + "-" + bs_today_month.padStart(2, "0") + "-" + bs_today_date.padStart(2, "0");
+      single_parva_date = single_parva.id.slice(0, 10);
+      if( single_parva_date == bs_date_today) {
+        single_parva.classList.add('text-primary');
       }
     }
     highlight_event_in_calendar();
