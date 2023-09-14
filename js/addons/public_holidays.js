@@ -165,15 +165,15 @@ function add_public_holiday_box(month, year) {
   }
   console.info("Creating Public Holiday Info Box...");
 
-  let public_holiday_list_html = "<span style='text-decoration: underline;'>सार्वजनिक बिदाहरू:</span><br />";
+  let public_holiday_list_html = "<span style='text-decoration: underline;' onclick='highlight_ph_events();' title='Click to Focus all Holidays'>सार्वजनिक बिदाहरू:</span><br />";
   if(public_holiday_lang_en) {
-    public_holiday_list_html = "<span style='text-decoration: underline;'>Public Holidays:</span><br />";
+    public_holiday_list_html = "<span style='text-decoration: underline;' onclick='highlight_ph_events();' title='Click to Focus all Holidays'>Public Holidays:</span><br />";
   }
   let public_holiday_box = document.getElementById("public_holiday_box");
   let last_date = CALENDAR_MODE ? 32 : get_last_date_ns(year, month);
   let has_public_holiday = false;
 
-  for (var date = 1; date < last_date; date++) {
+  for (var date = 1; date <= last_date; date++) {
     let bs_list = "";
     if(CALENDAR_MODE == 0) {
       bs_list = convert_ns_to_bs(year, month, date).split(" ");
@@ -223,10 +223,17 @@ function add_public_holiday_box(month, year) {
         holiday.classList.add('specific_holiday');
       }
     }
+
+    bs_date_today = bs_today_year + "-" + bs_today_month.padStart(2, "0") + "-" + bs_today_date.padStart(2, "0");
+    holiday_date = holiday.id.slice(0, 10);
+    if( holiday_date == bs_date_today) {
+      holiday.classList.add('text-primary');
+    }
   }
   public_holiday_box.style.display = "block";
   if(!has_public_holiday) {
     public_holiday_box.style.display = "none";
   }
+  highlight_holidays_in_adns_calendar();
   console.info("Creating Public Holiday Info Box... DONE!");
 }
