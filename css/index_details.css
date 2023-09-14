@@ -258,12 +258,14 @@ input[type="submit"][disabled]:hover {
     border-bottom: double !important;
   }
 
-  td.national_holiday, td.saturday {
+  td.national_holiday, td.saturday, th.saturday, th.sundaytrial, td.sundaytrial {
     border: 2px solid red !important;
+    background-color: pink !important;
   }
 
   td.specific_holiday {
     border: 1.5px solid darkturquoise !important;
+    background-color: powderblue !important;
   }
 
   .specific_holiday span h4 b {
