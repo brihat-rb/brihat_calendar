@@ -121,7 +121,7 @@ function tdclick(id) {
 
   let nepali_date = arabic_number_to_nepali(bs_year) + " ";
   nepali_date += BS_MONTHS_NEP[bs_month-1] + " ";
-  nepali_date += arabic_number_to_nepali(bs_date);
+  nepali_date += arabic_number_to_nepali(parseInt(bs_date));
   let nepali_date_day = nepali_date + ", " + NEPALI_DAYS[nepali_day];
 
   let solar_ns_date_list = convert_bs_to_ns(bs_year, bs_month, bs_date).split(" ");
