@@ -164,6 +164,11 @@ const BS_MONTHS_NEP = ["वैशाख", "ज्येष्ठ", "आषाढ
 const BS_MONTHS_NEP_SHORT = ["वै.", "ज्ये.", "आ.", "श्रा.", "भा.", "आ.", "का.", "मं.", "पौ.", "मा.", "फा.", "चै."];
 
 /* * HELPER Functions * */
+function get_last_date_bs(bs_year, bs_month) {
+    // returns last date for given BS year and month
+    return BS_CALENDAR_DATA[bs_year.toString()][bs_month - 1];
+}
+
 function verify_bs_date(year, month, date) {
     // verify given nepali date
     try {

@@ -170,7 +170,7 @@ function add_public_holiday_box(month, year) {
     public_holiday_list_html = "<span style='text-decoration: underline;' onclick='highlight_ph_events();' title='Click to Focus all Holidays'>Public Holidays:</span><br />";
   }
   let public_holiday_box = document.getElementById("public_holiday_box");
-  let last_date = CALENDAR_MODE ? 32 : get_last_date_ns(year, month);
+  let last_date = CALENDAR_MODE ? (CALENDAR_MODE == 1 ? get_last_date_ad(year, month) : get_last_date_bs(year, month) ) : get_last_date_ns(year, month);
   let has_public_holiday = false;
 
   for (var date = 1; date <= last_date; date++) {

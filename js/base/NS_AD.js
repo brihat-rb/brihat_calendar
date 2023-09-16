@@ -44,6 +44,16 @@ const NEPALI_DAYS_ABBR = ["आ.", "सो.", "मं.", "बु.", "बि.", "�
 const ENGLISH_DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const ENGLISH_DAYS_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
+function get_last_date_ad(ad_year, ad_month) {
+    // returns last date for given AD year and month
+    if (is_leap_year(ad_year)) {
+        return LEAP_DAYS_LIST[ad_month - 1];
+    }
+    else {
+      return DAYS_LIST[ad_month - 1];
+    }
+}
+
 /* * CONVERTER FUNCTIONS * */
 function convert_ns_to_ad(ns_year, ns_month, ns_date) {
     // this function converts NS date to AD
