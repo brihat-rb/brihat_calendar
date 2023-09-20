@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Laila&display=swap" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Laila';
+      font-weight: bold;
+      font-size: 12px;
+      user-select: none;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .footer {
+      position: sticky;
+      bottom: 0;
+      z-index: 100;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      position: sticky;
+      left: 0px;
+    }
+
+    td:hover {
+      border: 2px solid maroon !important;
+      color: maroon !important;
+      background-color: darkgray !important;
+      --bs-table-striped-bg: darkgray !important;
+    }
+  </style>
+</head>
+
+<body>
+  <table id="event_table" class="table table-sm table-success table-striped-columns table-bordered"
+    style="color: darkgreen; --bs-table-striped-color: darkblue; --bs-table-hover-color: maroon; width:100%;">
+    <thead class="header table-dark table align-middle">
+      <!-- <tr><td colspan="18" class="text-center">Compiled By Brihat (reachme@brihatrb.com.np)</td></tr> -->
+      <tr>
+        <th class="text-center" scope="col">#</th>
+        <!-- <th class="text-center" scope="col">तिथि &rArr;<br />महिना &dArr;</th> -->
+        <th class="text-center" title="महिना &dArr; | तिथि &rArr;" scope="col">महिना &dArr; | तिथि &rArr;</th>
+        <th class="text-center" title="प्रतिपदा" scope="col">प्रतिपदा</th>
+        <th class="text-center" title="द्वितीया" scope="col">द्वितीया</th>
+        <th class="text-center" title="तृतिया" scope="col">तृतिया</th>
+        <th class="text-center" title="चतुर्थी" scope="col">चतुर्थी</th>
+        <th class="text-center" title="पञ्चमी" scope="col">पञ्चमी</th>
+        <th class="text-center" title="षष्ठी" scope="col">षष्ठी</th>
+        <th class="text-center" title="सप्तमी" scope="col">सप्तमी</th>
+        <th class="text-center" title="अष्टमी" scope="col">अष्टमी</th>
+        <th class="text-center" title="नवमी" scope="col">नवमी</th>
+        <th class="text-center" title="दशमी" scope="col">दशमी</th>
+        <th class="text-center" title="एकादशी" scope="col">एकादशी</th>
+        <th class="text-center" title="द्वादशी" scope="col">द्वादशी</th>
+        <th class="text-center" title="त्रयोदशी" scope="col">त्रयोदशी</th>
+        <th class="text-center" title="चतुर्दशी" scope="col">चतुर्दशी</th>
+        <th class="text-center" title="औंसी" scope="col">औंसी</th>
+        <th class="text-center" title="पूर्णिमा" scope="col">पूर्णिमा</th>
+      </tr>
+    </thead>
+    <tbody id="table_body"></tbody>
+    <tfoot class="footer table-dark text-center">
+      <tr>
+        <th class="text-center" scope="col">#</th>
+        <!-- <th class="text-center" scope="col">महिना &uArr;<br />तिथि &rArr;</th> -->
+        <th class="text-center" scope="col">महिना &uArr; | तिथि &rArr;</th>
+        <th class="text-center" scope="col">प्रतिपदा</th>
+        <th class="text-center" scope="col">द्वितीया</th>
+        <th class="text-center" scope="col">तृतिया</th>
+        <th class="text-center" scope="col">चतुर्थी</th>
+        <th class="text-center" scope="col">पञ्चमी</th>
+        <th class="text-center" scope="col">षष्ठी</th>
+        <th class="text-center" scope="col">सप्तमी</th>
+        <th class="text-center" scope="col">अष्टमी</th>
+        <th class="text-center" scope="col">नवमी</th>
+        <th class="text-center" scope="col">दशमी</th>
+        <th class="text-center" scope="col">एकादशी</th>
+        <th class="text-center" scope="col">द्वादशी</th>
+        <th class="text-center" scope="col">त्रयोदशी</th>
+        <th class="text-center" scope="col">चतुर्दशी</th>
+        <th class="text-center" scope="col">औंसी</th>
+        <th class="text-center" scope="col">पूर्णिमा</th>
+      </tr>
+      <tr>
+        <td colspan="6" class="text-center">Compiled By Brihat Ratna Bajracharya</td>
+        <td colspan="6" class="text-center">May not be 100 % accurate</td>
+        <td colspan="6" class="text-center">reachme@brihatrb.com.np</td>
+      </tr>
+    </tfoot>
+  </table>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
+  <script src="./lunar_events.js"></script>
+</body>
+
+</html>
