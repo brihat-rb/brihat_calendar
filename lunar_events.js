@@ -36,6 +36,21 @@ event_req.onload = function () {
         continue;
       }
 
+      // This case will be addressed in following next case, so can be skipped
+      else if (tithi == "पूर्णिमा") {
+        continue;
+      }
+
+      // To combine औंसी and पूर्णिमा events into one (also addressed above case of पूर्णिमा)
+      else if (tithi == "औंसी" && events[month][tithi][0] == "xxxxx") {
+          tithi = "पूर्णिमा";
+      }
+      
+      // To address other special case in future, blank for now
+      else {
+        // continue as usual
+      }
+
       var td_elems = document.createElement('td');
       td_elems.setAttribute("class", "text-center text-nowrap");
       td_elems.setAttribute("title", month + " (" + events[month]["eq_names"][0] + ") " + tithi);
