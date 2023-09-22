@@ -159,7 +159,7 @@ const BASE_BS_DATE_FOR_NS = 4;
 
 const BASE_BS_OFFSET = 190;
 
-// const BS_MONTHS_ENG = ["Baisakh", "Jestha", "Ashad", "Shrawan", "Bhadra", "Ashwin", "Kartik", "Mangsir", "Poush", "Magh", "Falgun", "Chaitra"];
+const BS_MONTHS_ENG = ["Baisakh", "Jestha", "Ashad", "Shrawan", "Bhadra", "Ashwin", "Kartik", "Mangsir", "Poush", "Magh", "Falgun", "Chaitra"];
 const BS_MONTHS_NEP = ["वैशाख", "ज्येष्ठ", "आषाढ", "श्रावण", "भाद्र", "आश्विन", "कार्तिक", "मंसिर", "पौष", "माघ", "फाल्गुण", "चैत्र"];
 const BS_MONTHS_NEP_SHORT = ["वै.", "ज्ये.", "आ.", "श्रा.", "भा.", "आ.", "का.", "मं.", "पौ.", "मा.", "फा.", "चै."];
 
