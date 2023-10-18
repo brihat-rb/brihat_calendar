@@ -72,6 +72,7 @@ function displayTime(skip_lang_check = false) {
     let utc_hh = date.getUTCHours();
     let utc_mm = date.getUTCMinutes();
     let utc_ss = date.getUTCSeconds();
+    let utc_mmss = date.getUTCMilliseconds();
 
     let bs_date = convert_ad_to_bs(year, month, ddate).split(" ");
 
@@ -88,9 +89,9 @@ function displayTime(skip_lang_check = false) {
         second_span.innerHTML = arabic_numbertext_to_nepali(ss.toString().padStart(2, "0"));
     }
 
-    let h_rotation = 30 * hh + mm / 2 + ss / 120 + mmss / 120000;
-    let m_rotation = 6 * mm + ss / 10 + mmss / 10000;
-    let s_rotation = 6 * ss + (mmss * 3) / 500;
+    let h_rotation = in_nep ? 30 * hh + mm / 2 + ss / 120 + mmss / 120000 : 30 * utc_hh + utc_mm / 2 + utc_ss / 120 + utc_mmss / 120000;
+    let m_rotation = in_nep ? 6 * mm + ss / 10 + mmss / 10000 : 6 * utc_mm + utc_ss / 10 + utc_mmss / 10000;
+    let s_rotation = in_nep ? 6 * ss + (mmss * 3) / 500 : 6 * utc_ss + (utc_mmss * 3) / 500;
 
     let y_rotation = leap_year ? yearly_days / 366 * 360 : yearly_days / 365 * 360;
     if (in_nep) {
