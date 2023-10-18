@@ -40,7 +40,7 @@ body {
 }
 
 .card-header {
-  background: url('../assets/logo.svg') 5% center, url('../assets/logo.svg') 95% center;
+  background: url('../assets/logo.svg') 5% center;
   background-repeat: no-repeat;
   background-size: auto 80%;
 }
