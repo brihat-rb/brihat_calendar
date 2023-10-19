@@ -3,6 +3,7 @@ let lang = CALENDAR_MODE == 2 ? "np" : "en";
 let in_nep = lang == "np";
 
 let year_hand = document.getElementById('clockyear');
+let time_type = document.getElementById('timetype');
 
 let hour = document.getElementById('hour');
 let minute = document.getElementById('minute');
@@ -12,6 +13,7 @@ let rev_hour = document.getElementById('rev_hour');
 let rev_minute = document.getElementById('rev_minute');
 let rev_second = document.getElementById('rev_second');
 
+let digital_div = document.getElementById('digital');
 let hour_span = document.getElementById('digital_hour');
 let minute_span = document.getElementById('digital_minute');
 let second_span = document.getElementById('digital_second');
@@ -42,15 +44,17 @@ function toggle_lang() {
     intervalID = setTimeout(function () {
         Array.from(document.getElementsByClassName('hand')).forEach((elem) => elem.classList.remove('iniani'));
         Array.from(document.getElementsByClassName('handrev')).forEach((elem) => elem.classList.remove('iniani'));
-        innerIntervalID = setInterval(function() { displayTime(true); }, 25);
+        innerIntervalID = setInterval(function () { displayTime(true); }, 25);
     }, 1000);
 }
 
 function displayTime(skip_lang_check = false) {
-    if(!skip_lang_check) {
+    if (!skip_lang_check) {
         lang = CALENDAR_MODE == 2 ? "np" : "en";
         in_nep = lang == "np";
     }
+
+    time_type.innerHTML = in_nep ? "LOCAL" : "UTC";
 
     let time_span = document.getElementsByClassName("clocktime");
     for (var i = 0; i < time_span.length; i++) {
@@ -87,6 +91,7 @@ function displayTime(skip_lang_check = false) {
         hour_span.innerHTML = arabic_numbertext_to_nepali(hh.toString().padStart(2, "0"));
         minute_span.innerHTML = arabic_numbertext_to_nepali(mm.toString().padStart(2, "0"));
         second_span.innerHTML = arabic_numbertext_to_nepali(ss.toString().padStart(2, "0"));
+        Array.from(document.getElementsByClassName('num')).forEach((elem) => elem.childNodes[0].innerText = arabic_numbertext_to_nepali(elem.childNodes[0].innerText));
     }
 
     let h_rotation = in_nep ? 30 * hh + mm / 2 + ss / 120 + mmss / 120000 : 30 * utc_hh + utc_mm / 2 + utc_ss / 120 + utc_mmss / 120000;
@@ -116,5 +121,5 @@ let innerIntervalID = null;
 let intervalID = setTimeout(function () {
     Array.from(document.getElementsByClassName('hand')).forEach((elem) => elem.classList.remove('iniani'));
     Array.from(document.getElementsByClassName('handrev')).forEach((elem) => elem.classList.remove('iniani'));
-    innerIntervalID = setInterval(function() { displayTime(false); }, 25);
+    innerIntervalID = setInterval(function () { displayTime(false); }, 25);
 }, 1000);
