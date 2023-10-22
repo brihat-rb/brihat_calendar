@@ -23,6 +23,11 @@ function trigger_key_press(e) {
         e.preventDefault();
         down();
     }
+    else if (e.keyCode == '13') {
+        // console.log("ENTER");
+        e.preventDefault();
+        go_to_today();
+    }
     else {
         // some other key
         console.log(e.keyCode);
