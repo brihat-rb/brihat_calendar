@@ -58,7 +58,7 @@ navigator.get_os_info = (function() {
     os = userAgent.match(/(ipad|iphone|ipod).+?(?=\))/i)[0];
   } else if (windowsPlatforms.indexOf(platform) !== -1) {
     // os = 'Windows';
-    os = userAgent.match(/windows.+?(?=\))/i)[0];
+    os = userAgent.match(/windows.+?(?=\))/i) ? userAgent.match(/windows.+?(?=\))/i)[0] : "null";
   } else if (/Android/.test(userAgent)) {
     // os = 'Android';
     os = userAgent.match(/android\s([0-9\.]*)/i)[0];
