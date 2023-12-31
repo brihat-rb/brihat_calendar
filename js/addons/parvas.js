@@ -40,6 +40,21 @@ function add_parvas_list_bs(month, year) {
 
   nat_parvas_event_req.send();
   
+  var international_parvas_event_req = new XMLHttpRequest();
+  var international_event_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/international_events.json';
+  var international_events = JSON.parse("{}");
+
+  international_parvas_event_req.open('GET', international_event_url, false);
+  international_parvas_event_req.onload = function() {
+    international_events = JSON.parse(this.response);
+  }
+
+  international_parvas_event_req.onerror = function() {
+    content.innerHTML = "Error Occured";
+  }
+
+  international_parvas_event_req.send();
+ 
   var parvas_event_req = new XMLHttpRequest();
   if (year >= 2076 && year <= END_BS_YEAR) {
     json_url = 'https://raw.githubusercontent.com/brihat-rb/brihat-rb.github.io/master/calendar/data/' + year + '_detailed.json';
@@ -113,6 +128,24 @@ function add_parvas_list_bs(month, year) {
             parvas += "<span id=" + parvas_span_id + ">" + arabic_number_to_nepali(date) + " - " + nat_events.data[nat_parva_key][1];
           // }
           has_bs_event = true;
+        }
+      }
+
+      // this includes international events (selected with flag == 1 in parvas list -- added 31 DECEMBER 2023
+      let ad_eq_date_list = convert_bs_to_ad(year, month, date).split(" ");
+      let international_events_key = ad_eq_date_list[1] + "-" + ad_eq_date_list[2];
+      if (international_events.data[international_events_key]) {
+        if (international_events.data[international_events_key][2] == 1) {
+          console.info("Found an international event to show:", arabic_number_to_nepali(date), " - ", international_events.data[international_events_key][1]);
+          if(has_bs_event) {
+            if(!parvas.includes(international_events.data[international_events_key][1])) {
+              parvas += ", " + international_events.data[international_events_key][1];
+            }
+          }
+          else {
+            parvas += "<span id=" + parvas_span_id + ">" + arabic_number_to_nepali(date) + " - " + international_events.data[international_events_key][1];
+            has_bs_event = true;
+          }
         }
       }
 
