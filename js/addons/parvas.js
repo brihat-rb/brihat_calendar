@@ -133,7 +133,7 @@ function add_parvas_list_bs(month, year) {
 
       // this includes international events (selected with flag == 1 in parvas list -- added 31 DECEMBER 2023
       let ad_eq_date_list = convert_bs_to_ad(year, month, date).split(" ");
-      let international_events_key = ad_eq_date_list[1] + "-" + ad_eq_date_list[2];
+      let international_events_key = ad_eq_date_list[1].toString().padStart(2, "0") + "-" + ad_eq_date_list[2].toString().padStart(2, "0");
       if (international_events.data[international_events_key]) {
         if (international_events.data[international_events_key][2] == 1) {
           console.info("Found an international event to show:", arabic_number_to_nepali(date), " - ", international_events.data[international_events_key][1]);
