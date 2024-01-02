@@ -19,7 +19,7 @@
 
 /* REQUIRES: NS.js, NS_BS.js, NS_AD.js */
 
-const END_BS_YEAR = 2080;
+const END_BS_YEAR = 2081;
 
 let today = new Date();
 let AD_TODAY_YEAR = today.getFullYear();
