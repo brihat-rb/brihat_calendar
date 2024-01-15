@@ -180,6 +180,7 @@ function add_parvas_list_bs(month, year) {
     for(var single_parva of parvas_list) {
       var parva_holiday_id = single_parva.id.slice(5, 10);
       single_parva.innerHTML = single_parva.innerHTML.replaceAll(" /", ",");
+      single_parva.innerText = single_parva.innerText.replace(/\s*([^,]+),\s*\1(?=,|$)/g," $1");
       if(public_holidays[year].hasOwnProperty(parva_holiday_id)) {
         if(public_holidays[year][parva_holiday_id][1] == 'national') {
           single_parva.classList.add('national_holiday');
