@@ -22,7 +22,7 @@ var public_holiday_url = 'https://raw.githubusercontent.com/brihat-rb/brihat_cal
 var public_holiday_req = new XMLHttpRequest();
 var public_holidays = JSON.parse("{}");
 var public_holidays_start_year = 2076;
-var public_holidays_end_year = 2079;
+var public_holidays_end_year = 2081;
 
 let public_holiday_lang_en = false;
 if(localStorage.config != null) {
