@@ -32,11 +32,11 @@ function add_muhoortta_box(month, year) {
     return;
   }
   var muhoortta_event_req = new XMLHttpRequest();
-  if (year >= 2079 && year <= 2080) {
+  if (year >= 2079 && year <= 2081) {
     json_url = 'https://raw.githubusercontent.com/brihat-rb/brihat_calendar/main/data/muhoortta.json';
   }
   else {
-    console.warn("BS Year Range Invalid (Valid: 2079-2080) Given: ", year);
+    console.warn("BS Year Range Invalid (Valid: 2079-2081) Given: ", year);
     document.getElementById("muhoortta_box").innerHTML = "";
     return;
   }

@@ -3,7 +3,7 @@
 
 ```
   Brihat Calendar (A Simple Solar NS - AD - BS Calendar with tithis, events, public holidays info)
-  Copyright (C) 2023  Brihat Ratna Bajracharya
+  Copyright (C) 2022-2024  Brihat Ratna Bajracharya
   
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -24,13 +24,13 @@
  - Solar Nepal Sambat Calendar
  - BS Equivalent Date
  - AD Equivalent Date
- - Lunar Pakshya Date for 2076 to 2080 BS
+ - Lunar Pakshya Date for 2076 to 2081 BS
  - Basic Tithis Info for 2070-2075 BS
  - Toggle between NS, AD and BS Calendar
  - Date Details (Event Information)
  - Receive suggestions for edit
  - National and International Event Details
- - Events and Public Holiday Information (2076 - 2080 BS)
+ - Events and Public Holiday Information (2076 - 2081 BS)
  - Muhoortta Information (2079 BS)
  - Sunrise Sunset Time for Kathmandu (2019 - 2025 AD)
  - Events and Holidays Box
