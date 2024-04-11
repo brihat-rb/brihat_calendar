@@ -5,7 +5,7 @@
 .clockcontainer {
     position: absolute;
     z-index: 3;
-    right: 11%;
+    right: 8%;
     top: 5px;
     background-image: url(../assets/clock_logo.svg);
     background-position: center center;
