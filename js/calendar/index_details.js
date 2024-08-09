@@ -417,12 +417,19 @@ function tdclick(id) {
       info_content +="<div class='international_event event_type'>international event</div>";
       ievents_list = ievents.data[int_events_key][1].split("/");
       ievents_list_eng = ievents.data[int_events_key][0].split("/");
-      ievents_list.forEach(element => {
-        info_content +="<div class='international_event'>" + element + "</div>";
-      });
-      ievents_list_eng.forEach(element => {
-        info_content +="<div class='international_event'>" + element + "</div>";
-      });
+      if(ievents_list.length > 1) {
+      	for(var index = 0; index < ievents_list.length; index++) {
+      		info_content +="<div class='international_event'>" + ievents_list[index] + "</div>";
+      		info_content +="<div class='international_event'>( " + ievents_list_eng[index] + " )</div>";
+      		if(index < ievents_list.length - 1) {
+      			info_content +="<br />";
+      		}
+      	}
+      }
+      else {
+        info_content +="<div class='international_event'>" + ievents_list[0] + "</div>";
+      	info_content +="<div class='international_event'>( " + ievents_list_eng[0] + " )</div>";
+      }
       has_events = true;
       console.info("International Event Displayed!");
     }
