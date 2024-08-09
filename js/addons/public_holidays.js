@@ -132,8 +132,24 @@ function add_public_holiday_info(complete_date, has_events) {
     }
     public_holidays_info += "<div class=" + public_holidays_array[1] + "_holiday>";
     public_holidays_info += "<div id='public_holiday_title'>holiday information</div>";
-    public_holidays_info += "<div id='public_holiday_cause'>" + public_holidays_array[0] + "</div>";
-    public_holidays_info += "<div id='public_holiday_description'>( " + public_holidays_array[2] + " )</div>";
+	
+	  var public_holidays_cause_list = public_holidays_array[0].split("/");
+	  var public_holidays_description_list = public_holidays_array[2].split("/");
+	
+	  if(public_holidays_cause_list.length > 1) {
+		  for(var index = 0; index < public_holidays_cause_list.length; index++) {
+			  public_holidays_info += "<div class='public_holiday_cause'>" + public_holidays_cause_list[index] + "</div>";
+			  public_holidays_info += "<div class='public_holiday_description'>( " + public_holidays_description_list[index] + " )</div>";
+			  if (index < public_holidays_cause_list.length - 1) {
+				  public_holidays_info += "<br />";
+			  }
+		  }
+	  }
+	  else {
+		  public_holidays_info += "<div id='public_holiday_cause'>" + public_holidays_array[0] + "</div>";
+		  public_holidays_info += "<div id='public_holiday_description'>( " + public_holidays_array[2] + " )</div>";
+	  }
+	
     public_holidays_info += "</div>";
 
     var date_detail_popup_title = document.getElementById('modal_title');
@@ -144,6 +160,7 @@ function add_public_holiday_info(complete_date, has_events) {
       date_detail_popup_title.classList.remove('saturday');
       date_detail_popup_title.classList.add('saturday');
     }
+    
     // special case when specific holiday lies on sundaytrial after 2079-02
     if ((parseInt(complete_date.substring(0,4)) == 2079 && parseInt(complete_date.substring(5,7)) == 2)) {
       if (date_detail_popup_title.classList.contains('sundaytrial')) {
